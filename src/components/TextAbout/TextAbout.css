@@ -1,0 +1,41 @@
+*{
+    margin-top: 40px;
+    padding: 0;
+}
+.container{
+    padding-top: 130px;
+    margin-top: 0px;
+    width: 800px;
+    justify-self: center;
+}
+
+.container>h1{
+    color: rgb(34, 32, 32);
+    text-align: center;
+    font-size: 40px;
+    font-family: Coolvetica;
+    padding-bottom: 50px;
+}
+.container>h3{
+    text-align: center;
+    padding: 20px;
+    background-color: gainsboro;
+}
+.container>p{
+    padding: 50px;
+}
+
+.year{
+    font-size: 40px;
+    text-align: center;
+    align-self: center;
+}
+#img30{
+    background-color: rgb(101, 101, 224);
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 300px;
+}
