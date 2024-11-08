@@ -1,19 +1,67 @@
+@font-face {
+  font-family: 'Coolvetica';
+  src: url('../src/fonts/coolvetica\ rg.otf') format('opentype');
+}
+@font-face {
+  font-family: 'CoolveticaCmprs';
+  src: url('../src/fonts/coolvetica\ compressed\ hv.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Philosopher';
+  src: url('../src/fonts/Philosopher-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Brolia';
+  src: url('../src/fonts/Brolia.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Montvolca';
+  src: url('../src/fonts/Montvolca.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Ristorante';
+  src: url('../src/fonts/RistoranteSerif_PERSONAL_USE_ONLY.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Roughnecks';
+  src: url('../src/fonts/ROUGHNECKS.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Dunkin';
+  src: url('../src/fonts/Dunkin.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Guaraldo';
+  src: url('../src/fonts/GUARALDO\ PERSONAL\ USE.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Sinerva';
+  src: url('../src/fonts/Sinerva.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Michael';
+  src: url('../src/fonts/michael.otf') format('opentype');
+}
+@font-face {
+  font-family: 'TypoGraphica';
+  src: url('../src/fonts/TypoGraphica_demo.otf') format('opentype');
+}
 .slide-in{
   position: fixed;
-  top: 85px;
+  top: 80px;
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: #351f5e;
+  background-color: #cecbd4;
   transform-origin: bottom;
 }
 
 .slide-out{
   position: fixed;
-  top: 85px;
+  top: 80px;
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: #351f5e;
+  background-color: #cecbd4;
   transform-origin: top;
 }

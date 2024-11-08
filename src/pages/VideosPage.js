@@ -1,6 +1,6 @@
 import React from "react";
 import transition from "../transition";
-import VideosComp1 from "../components/VideosComp/VideosComp1";
+import VideosComp1 from "../components/VideosPageComponents/VideosComp/VideosComp1";
 
 const VideosPage = () => {
     return(

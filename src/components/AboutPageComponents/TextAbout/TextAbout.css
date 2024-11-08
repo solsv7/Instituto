@@ -1,0 +1,48 @@
+*{
+    margin-top: 40px;
+    padding: 0;
+}
+.ContenedorAbout{
+    padding-top: 130px;
+    margin-top: 0px;
+    width: 800px;
+    justify-self: center;
+}
+
+.ContenedorAbout>h1{
+    color: rgb(247, 239, 239);
+    font-family: 'Sinerva';
+    letter-spacing: 2px;
+    text-align: center;
+    font-size: 40px;
+    padding-bottom: 50px;
+}
+.Contenido{
+    background-color: rgb(226, 223, 223);
+    border-radius: 5px;
+    padding: 35px;
+    height: 400px;
+    width: 500px;
+    justify-self: center;
+    color: rgb(59, 56, 56);
+    font-family: 'Montvolca';
+}
+
+.year>h2{
+    font-size: 40px;
+    text-align: center;
+    justify-self: center;
+    font-family: 'Sinerva';
+    letter-spacing: 2px;
+    padding: 40px;
+    
+}
+#img30{
+    background-color: rgb(101, 101, 224);
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 300px;
+}

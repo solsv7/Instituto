@@ -2,13 +2,18 @@ import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import './App.css';
-import Home from './components/Home/homeComponent'; 
 import Header from './components/Header/Header';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import BlogPage from './pages/BlogPage';
 import SchedulesPage from './pages/SchedulesPage';
 import VideosPage from './pages/VideosPage';
+import Redes from './components/Redes/Redes';
+import ProfilePage from './pages/ProfilePage';
+import ClassesPage from './pages/ClassesPage';
+import MarksPage from './pages/MarksPage';
+import AdvicesPage from './pages/AdvicesPage';
+
 
 
 const App = () => {
@@ -16,6 +21,7 @@ const App = () => {
     const location = useLocation();
     return (
         <>
+        <Redes></Redes>
             <Header />
             <AnimatePresence mode='wait'>
             <Routes location={location} key={location.pathname}>
@@ -24,8 +30,13 @@ const App = () => {
             <Route path='/AboutPage' element={<AboutPage />} />
             <Route path='/SchedulePage' element={<SchedulesPage />} />
             <Route path='/VideosPage' element={<VideosPage />} />
+            <Route path='/ProfilePage' element={<ProfilePage />} />
+            <Route path='/ClassesPage' element={<ClassesPage />} />
+            <Route path='/MarksPage' element={<MarksPage />} />
+            <Route path='/AdvicesPage' element={<AdvicesPage />} />
             </Routes>
             </AnimatePresence>
+            
         </>
     );
 };

@@ -3,7 +3,7 @@
 /* Estilos básicos */
 .sidebar {
     position: fixed;
-    top: 85px;
+    top: 83px;
     left: 100%; /* Inicialmente fuera de la pantalla */
     width: 150px;
     height: 300px;
@@ -13,10 +13,12 @@
     transition: left 0.3s ease;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
     border-bottom-left-radius: 16px;
+    font-family: 'Roughnecks';
   }
   
   .sidebar.open {
-    left: 85%; /* La sidebar se desliza al abrir */
+    left: 88%; /* La sidebar se desliza al abrir */
+    width: 120px;
     
   }
   
@@ -31,9 +33,11 @@
   
   .toggle-button {
     background: none;
+    margin-right: 35px;
   }
   .toggle-button > img {
-    height: 40px;
+    height: 30px;
+    width: 25px;
     display: flex;
     padding: 0 20px;
   }
@@ -49,11 +53,14 @@
   /* Lista de navegación */
   .sidebar ul {
     list-style: none;
+    
     padding: 0;
   }
   
   .sidebar li {
     margin: 15px 0;
+    border-bottom: 1px solid;
+    width: 120px;
   }
   
   .sidebar a {

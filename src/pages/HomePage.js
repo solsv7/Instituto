@@ -1,8 +1,7 @@
 import React from "react";
-import Homepag from "../components/homepage/homepage";
-import Niveles from "../components/levels/levels";
-import Footer from "../components/footer/footer";
-import Home from "../components/Home/homeComponent";
+import Homepag from "../components/HomePageComponents/homepage/homepage"
+import Niveles from "../components/HomePageComponents/levels/levels";
+import DifClases from "../components/HomePageComponents/difClases/difClases"
 import transition from "../transition";
 
 const HomePage = () =>{
@@ -10,7 +9,7 @@ const HomePage = () =>{
         <div>
             <Homepag />
             <Niveles />
-            <Footer />
+            <DifClases />
         </div>
     )
 }

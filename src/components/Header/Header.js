@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import './header.css';
-import Login from '../Login/LoginComponent';
-import logo from './logo.png';
-import perfil from './perfil.png'
+import Login from '../HomePageComponents/Login/LoginComponent';
+import perfil from '../../images/iconos/perfil.png'
 import { useNavigate } from 'react-router-dom'; 
 import Sidebar from '../sidebar/sidebar';
 import { Link } from 'react-router-dom';
@@ -34,8 +33,8 @@ const Header = () => {
     return (
         <div>
             <header className="header">
-                <div className="logo">
-                    <img src={logo} alt="Logo" />
+                <div className="Nombre">
+                    <h2>St Thomas Institute</h2>
                 </div>
                 <nav className="nav-links">
                     <h3><Link to="/">Home</Link></h3>
