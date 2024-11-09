@@ -1,42 +1,61 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './Login.css'
+import './Login.css';
+import { UserContext } from '../../UserContext/UserContext'; // Importar el contexto
 
 const LoginComponent = () => {
     const [dni, setDni] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+    const { setUserName } = useContext(UserContext); // Usar el contexto
 
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            console.log(dni, password);
-            const response = await axios.post(
-                'http://localhost:3001/api/auth/login', 
-                { dni, password },
-                { headers: { 'Content-Type': 'application/json' } }
-            );
-            const { token, user: { id: studentId, nombre_alumno: studentName } } = response.data;
-        
+            const response = await axios.post('http://localhost:3001/api/auth/login', { dni, password });
+            const { token, user } = response.data;
+
             localStorage.setItem('token', token);
-            localStorage.setItem('studentId', studentId); 
-            navigate('/home', { state: { studentName, studentId } }); 
+            localStorage.setItem('user', JSON.stringify(user));
+            console.log('datos que obtiene: ', user)
+
+            setUserName(user.nombre); // Actualizar el nombre del usuario en el contexto
+
+            // Redirigir según el rol del usuario
+            if (user.rol === 2) {
+                navigate('/ProfilePage');
+            } else if (user.rol === 3) {
+                navigate('/ProfilePage');
+            } else {
+                navigate('/ProfilePage');
+            }
         } catch (err) {
-            const message = err.response?.data?.message || 'Error al iniciar sesión. Por favor, verifica tus credenciales.';
-            setError(message);
+            setError('Error al iniciar sesión');
             console.log(err);
         }
     };
 
     return (
         <div>
-            <form onSubmit={handleLogin} id='formularioLogin'>
-                <input type="text" value={dni} onChange={(e) => setDni(e.target.value)} placeholder="DNI" required />
-                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Contraseña" required />
-                {error && <div className='msgError'>{error}</div>}
-                <button type="submit" id='BotonSubmit'>Iniciar Sesión</button>
+            <form onSubmit={handleLogin} id="formularioLogin">
+                <input
+                    type="text"
+                    value={dni}
+                    onChange={(e) => setDni(e.target.value)}
+                    placeholder="DNI"
+                    required
+                />
+                <input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Contraseña"
+                    required
+                />
+                {error && <div className="msgError">{error}</div>}
+                <button type="submit">Iniciar Sesión</button>
             </form>
         </div>
     );

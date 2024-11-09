@@ -53,14 +53,34 @@
   /* Lista de navegación */
   .sidebar ul {
     list-style: none;
-    
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
     padding: 0;
   }
   
   .sidebar li {
     margin: 15px 0;
-    border-bottom: 1px solid;
     width: 120px;
+    
+  }
+  .OpcionSidebar:hover{
+    color: rgb(119, 119, 124);
+  }
+  .OpcionSidebar{
+    color: rgb(227, 241, 231);
+  }
+  .LogOutBTN{
+    background-color: wheat;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 15px;
+  }
+  .LogOutBTN:hover{
+    color: white;
+    background-color: black;
+
   }
   
   .sidebar a {

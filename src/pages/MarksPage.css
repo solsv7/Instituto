@@ -1,0 +1,29 @@
+.ContenedorMarksPage{
+    padding-top: 100px;
+    justify-self: center;
+}
+.ContenidoMarksPage{
+    background-color: white;    
+    padding: 20px;
+    width: 950px;   
+}
+#Usuario{
+    
+    text-decoration: underline;
+    font-size: 20px;
+}
+.ContenidoMarksPage>h3{
+    font-family: 'Sinerva';
+    background-color: rgb(29, 26, 26);
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    text-align: center;
+    width: 100%;
+    gap: 5px;
+}
+.table-container{
+    width: 950px;
+}

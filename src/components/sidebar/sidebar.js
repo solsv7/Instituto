@@ -1,5 +1,7 @@
 // src/components/Sidebar.js
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../UserContext/UserContext'; // Importar el contexto
 import './Sidebar.css';
 import menuImagen from '../../images/iconos/menu-hamburguesa.png';
 import { Link } from 'react-router-dom';
@@ -12,6 +14,16 @@ const Sidebar = () => {
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
+  const navigate = useNavigate();
+    const token = localStorage.getItem('token');
+    const { userName, setUserName } = useContext(UserContext); // Usar el contexto
+
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        setUserName(''); // Limpiar el nombre del usuario en el contexto
+        navigate('/');
+    };
 
   return (
     <div>
@@ -24,11 +36,11 @@ const Sidebar = () => {
       <div className={`sidebar ${isOpen ? 'open' : ''}`}>
         <h2>Opciones</h2>
         <ul>
-          <li><Link to="/ProfilePage">Perfil</Link></li>
-          <li><Link to="/ClassesPage">Clases</Link></li>
-          <li><Link to="/MarksPage">Notas</Link></li>
-          <li><Link to="/AdvicesPage">Avisos</Link></li>
-          <li><Link to="/">Cerrar Sesion</Link></li>
+          <li><Link to="/ProfilePage"><h4 className='OpcionSidebar'>Perfil</h4></Link></li>
+          <li><Link to="/ClassesPage"><h4 className='OpcionSidebar'>Clases</h4></Link></li>
+          <li><Link to="/MarksPage"><h4 className='OpcionSidebar'>Notas</h4></Link></li>
+          <li><Link to="/AdvicesPage"><h4 className='OpcionSidebar'>Avisos</h4></Link></li>
+          <li><button onClick={handleLogout} className='LogOutBTN'>Cerrar Sesion</button></li>
         </ul>
       </div>
     </div>

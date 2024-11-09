@@ -2,6 +2,10 @@
 body{
     margin: 0px;
 }
+#logo{
+    height: 10px;
+    width: 10px;
+}
 .header {
     height: 83px;
     background: rgb(253, 253, 253);
@@ -53,6 +57,7 @@ body{
     cursor: pointer;
     transition: background-color 0.3s ease; 
     z-index: 0;
+    margin-right: 90px;
 }
 .login-button:hover{
     background-color: white;
@@ -97,24 +102,17 @@ body{
 #btn-switch{
     display: none;
 }
-
-.logout-button {
-    padding: 10px 20px; 
-    background-color: white;
-    border-radius: 22px;
-    color: #B40A00;
-    border: solid 1px black;
-    font-size: 16px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
+.UserName{
     border: none;
-    cursor: pointer;
+    color: #B40A00;
+}
+.UserName >h3 {
+    padding: 10px; 
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
     transition: background-color 0.3s ease; 
 }
-.logout-button:hover{
-    background: #B40A00;
-    color: white;
-}
+ 
 .ftPerfil{
     width: 40px;
 }

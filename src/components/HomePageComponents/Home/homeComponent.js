@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import GradesTable from '../../gradesComponent/grades';
+import { UserContext } from '../../UserContext/UserContext'; // Importar el contexto
 import './Home.css'
 
 const Home = () => {
@@ -10,6 +11,7 @@ const Home = () => {
     const [grades, setGrades] = useState([]);
     const [categories, setCategories] = useState([]);
     const [terms, setTerms] = useState([]);
+    const { userName, setUserName } = useContext(UserContext); // Usar el contexto
 
     useEffect(() => {
         const fetchGrades = async () => {
@@ -39,7 +41,7 @@ const Home = () => {
 
     return (
         <div className='CtnAllPrf'>
-            <h1>Bienvenido, {studentName}!</h1>
+            <h1>Bienvenido, {userName}!</h1>
             <GradesTable grades={grades} categories={categories} terms={terms} />
         </div>
     );
