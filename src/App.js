@@ -13,6 +13,9 @@ import ProfilePage from './pages/ProfilePage';
 import ClassesPage from './pages/ClassesPage';
 import MarksPage from './pages/MarksPage';
 import AdvicesPage from './pages/AdvicesPage';
+import HomeStudent from './components/HomeStudent/HomeStudent';
+import HomeTeacher from './components/HomeTeacher/HomeTeacher';
+import HomeAdmin from './components/HomeAdmin/HomeAdmin';
 
 
 
@@ -31,6 +34,9 @@ const App = () => {
             <Route path='/SchedulePage' element={<SchedulesPage />} />
             <Route path='/VideosPage' element={<VideosPage />} />
             <Route path='/ProfilePage' element={<ProfilePage />} />
+            <Route path='/home-student' element={<HomeStudent />} />
+            <Route path='/home-teacher' element={<HomeTeacher />} />
+            <Route path='/home-admin' element={<HomeAdmin />} />
             <Route path='/ClassesPage' element={<ClassesPage />} />
             <Route path='/MarksPage' element={<MarksPage />} />
             <Route path='/AdvicesPage' element={<AdvicesPage />} />

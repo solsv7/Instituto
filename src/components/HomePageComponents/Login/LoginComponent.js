@@ -24,10 +24,12 @@ const LoginComponent = () => {
             setUserName(user.nombre); // Actualizar el nombre del usuario en el contexto
 
             // Redirigir según el rol del usuario
-            if (user.rol === 2) {
-                navigate('/ProfilePage');
+            if (user.rol === 1) {
+                navigate('/home-admin');
+            } else if (user.rol === 2) {
+                navigate('/home-teacher');
             } else if (user.rol === 3) {
-                navigate('/ProfilePage');
+                navigate('/home-student');
             } else {
                 navigate('/ProfilePage');
             }
