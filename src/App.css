@@ -46,22 +46,44 @@
   font-family: 'TypoGraphica';
   src: url('../src/fonts/TypoGraphica_demo.otf') format('opentype');
 }
+@font-face {
+  font-family: 'Soria';
+  src: url('../src/fonts/soria-font.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Heathergreen';
+  src: url('../src/fonts/Heathergreen.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Allenoire';
+  src: url('../src/fonts/Allenoire\ Font.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Paradose';
+  src: url('../src/fonts/Ws\ Paradose\ Demo.ttf') format('truetype');
+}
+body{
+  background:linear-gradient(-180deg, #c94141,#df8c8c);
+  background-attachment: fixed;
+}
 .slide-in{
   position: fixed;
-  top: 80px;
+  top: 0px;
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: #cecbd4;
+  background-color:whitesmoke;
   transform-origin: bottom;
+  z-index: 5000;
 }
 
 .slide-out{
   position: fixed;
-  top: 80px;
+  top: 0px;
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: #cecbd4;
+  background-color:whitesmoke;
   transform-origin: top;
+  z-index: 5000;
 }

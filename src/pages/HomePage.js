@@ -9,7 +9,6 @@ const HomePage = () =>{
         <div>
             <Homepag />
             <Niveles />
-            <DifClases />
         </div>
     )
 }

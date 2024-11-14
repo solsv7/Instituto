@@ -1,16 +1,15 @@
 import React from "react";
 import './homepage.css';
-import profesor from './Persona.png';
+import ImageLoader from "../../imageLoader/imageLoader";
 
 const Homepag = () => {
     return(
         <div className="todo">
-        <div className="contenedor">
-            <h2 className="Texto">
-                "A different way to learn Languages"
-            </h2>
-            <img src={profesor} alt="" className="profe"></img>
+        <div className="TextoHome">
+            <h2>A different way</h2>
+            <h3>to learn Languages</h3>
         </div>
+        <ImageLoader />
         </div>
     )
 }
