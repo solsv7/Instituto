@@ -1,11 +1,11 @@
 import React from "react";
 import transition from "../transition";
-import Home from "../components/HomePageComponents/Home/homeComponent";
+import ProfilePageComponent from "../components/ProfilePageComponents/ProfilePageComponent";
 
 const ProfilePage = () =>{
     return(
         <div>
-            <Home />
+            <ProfilePageComponent/>
         </div>
     )
 }

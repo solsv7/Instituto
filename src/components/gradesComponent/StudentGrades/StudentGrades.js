@@ -12,12 +12,12 @@ const StudentGrades = () => {
         <StudentSearch onSelectStudent={setSelectedStudentId} />
         {selectedStudentId && (
         <>
-          <h2>Subir Nota para el alumno ID: {selectedStudentId}</h2>
-          <UploadGrade selectedStudentId={selectedStudentId} />
+            <h2>Subir Nota para el alumno ID: {selectedStudentId}</h2>
+            <UploadGrade selectedStudentId={selectedStudentId} />
         </>
-      )}
+        )}
     </div>
-  );
+    );
 };
 
 export default StudentGrades;

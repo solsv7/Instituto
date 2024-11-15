@@ -57,7 +57,7 @@ const LoginComponent = () => {
                     required
                 />
                 {error && <div className="msgError">{error}</div>}
-                <button type="submit">Iniciar Sesión</button>
+                <button type="submit">Sign in</button>
             </form>
         </div>
     );

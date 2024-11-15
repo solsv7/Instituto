@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import transition from "../../transition";
 
 const HomeAdmin = () => {
     const location = useLocation();
@@ -23,4 +24,4 @@ const HomeAdmin = () => {
     );
 };
 
-export default HomeAdmin;
+export default transition(HomeAdmin);

@@ -1,0 +1,15 @@
+.Horarios{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.Niveles{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.TablaHorarios{
+    width: 1000px;
+    justify-self: center;
+    border-radius: 22px;
+}

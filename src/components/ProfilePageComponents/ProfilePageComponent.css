@@ -1,0 +1,36 @@
+.ContainerProfilePage{
+    padding-top: 130px;
+    height: 500px;
+}
+.ContenidoProfilePage{
+    justify-self: center;
+    background-color: white;
+    padding: 50px;
+    border-radius: 25px;
+    width: 600px;
+}
+.ContenidoProfilePage>h3{
+    font-family: 'Allenoire';
+}
+.ContenidoProfilePage>h1{
+    font-family: 'Soria';
+}
+.Option{
+    display: flex;
+    gap: 10px;
+}
+.OptionIcon{
+    height: 10px;
+}
+.BotonEdit{
+    border: none;
+    cursor: pointer;
+    background: rgb(114, 117, 114);
+    padding: 5px;
+    border-radius: 5px;
+    height: 25px;
+    width: 25px;
+}
+.BotonEdit:hover{
+    filter: invert(1);
+}

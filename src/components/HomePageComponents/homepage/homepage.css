@@ -1,43 +1,26 @@
-body{
-    background-color: rgb(30, 13, 58);    
-    background-size: cover;
-}
 .todo{
-    padding: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    
 }
-.Texto{
-    margin: 0px;
-    font-size: 60px;
-    font-family:'Coolvetica';
-    font-style: italic;
+.TextoHome{
+    color: white;
+    font-size: 50px;
+    background-color: rgb(31,31,112);
+    padding: 80px;
+}
+.TextoHome>h2{
+    font-family: 'Allenoire';
+}
+.TextoHome>h3{
+    font-family:'Paradose';
     font-weight: lighter;
-    width: 530px;
-    height: 320px;
-    padding-left: 80px;
-    margin-top: 80px;
-    color: #B40A00;
-    text-shadow: 1px 2px 3px  gray;
-    justify-content: center;
-}
-.profe{
-    height: 380px;
-    padding-right: 80px;
-    mask-image: linear-gradient(black 70%, transparent); 
-    filter: drop-shadow(0 0 3px rgba(0, 0, 0, .8));  
+
 }
 .contenedor{
     display: flex;
-    height: 500px;
     width: 950px;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 5px 30px rgb(7, 7, 7);
     border-radius: 20px;
-    background-color: rgb(241, 237, 237);
-    margin-top: 30px;
 }

@@ -1,6 +1,6 @@
 // src/components/Sidebar.js
-import React, { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import {useNavigate } from 'react-router-dom';
 import { UserContext } from '../UserContext/UserContext'; // Importar el contexto
 import './Sidebar.css';
 import menuImagen from '../../images/iconos/menu-hamburguesa.png';
@@ -14,10 +14,11 @@ const Sidebar = () => {
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
-  const navigate = useNavigate();
+    const navigate = useNavigate();
     const token = localStorage.getItem('token');
     const { userName, setUserName } = useContext(UserContext); // Usar el contexto
 
+ 
     const handleLogout = () => {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
@@ -35,13 +36,15 @@ const Sidebar = () => {
       {}
       <div className={`sidebar ${isOpen ? 'open' : ''}`}>
         <h2>Opciones</h2>
-        <ul>
-          <li><Link to="/ProfilePage"><h4 className='OpcionSidebar'>Perfil</h4></Link></li>
-          <li><Link to="/ClassesPage"><h4 className='OpcionSidebar'>Clases</h4></Link></li>
-          <li><Link to="/MarksPage"><h4 className='OpcionSidebar'>Notas</h4></Link></li>
-          <li><Link to="/AdvicesPage"><h4 className='OpcionSidebar'>Avisos</h4></Link></li>
-          <li><button onClick={handleLogout} className='LogOutBTN'>Cerrar Sesion</button></li>
-        </ul>
+        <div className='Divparasepararyquedebonito'>
+          <div className='OpcionesSidebar'>
+            <Link to="/ProfilePage"><h4 className='OpcionSidebar' id='Blue2'>Perfil</h4></Link>
+            <Link to="/ClassesPage"><h4 className='OpcionSidebar' id='Red2'>Clases</h4></Link>
+            <Link to="/MarksPage"><h4 className='OpcionSidebar' id='Blue2'>Notas</h4></Link>
+            <Link to="/AdvicesPage"><h4 className='OpcionSidebar' id='Red2'>Avisos</h4></Link>
+            <button onClick={handleLogout} className='LogOutBTN'>Cerrar Sesion</button>
+          </div>
+        </div>
       </div>
     </div>
   );
