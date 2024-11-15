@@ -1,18 +1,18 @@
 import React, { useContext, useState } from 'react';
 import './header.css';
 import Login from '../HomePageComponents/Login/LoginComponent';
-import Logo from '../../images/logo.png'
+import axios from 'axios';
 import Sidebar from '../sidebar/sidebar';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../UserContext/UserContext'; // Importar el contexto
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
     const token = localStorage.getItem('token');
     const { userName} = useContext(UserContext); // Usar el contexto
-
-
+    const { setUserName } = useContext(UserContext); 
     const [show, setShow] = useState(false);
-
+    
     function changeVis() {
         setShow(!show);
         if (show) {
@@ -23,6 +23,7 @@ const Header = () => {
             document.getElementById('formulario').style.display = 'block';
         }
     }
+    
 
     return (
         <div>
@@ -43,8 +44,8 @@ const Header = () => {
                             <div className="log-perf">
                                 <button>
                                     <Link to="/ProfilePage" id='user'>
-                                    <h3 className='btn btn-left' >
-                                    {userName ? `Hello, ${userName}` : "Nombre de Usuario"}
+                                    <h3 className='btn btn-left'  id='user'>
+                                    {userName ? `${userName}` : "Username"}
                                     </h3>
                                     </Link>
                                 </button>
@@ -54,7 +55,7 @@ const Header = () => {
                             </div>
                         ) : (
                             <>
-                                <button className="login-button" onClick={changeVis}>Sign in</button>
+                                <button className="login-button" onClick={changeVis}>Sign In</button>
                                 
                                 <div className="login-form" id="formulario">
                                     <Login />
@@ -64,7 +65,6 @@ const Header = () => {
                     </div>
                 </nav>
             </header>
-            <p className='Separador'></p>
         </div>
     );
 };

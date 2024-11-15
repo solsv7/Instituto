@@ -3,25 +3,44 @@
 /* Estilos básicos */
 .sidebar {
     position: fixed;
-    top: 83px;
+    top: 110px;
     left: 100%; /* Inicialmente fuera de la pantalla */
     width: 150px;
-    height: 300px;
-    background-color: #B40A00;;
-    color: white;
+    height: 265px;
+    background-color: #f1efee;
+    color: rgb(44, 40, 40);
     padding: 20px;
     transition: left 0.3s ease;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 9px 10px rgba(0, 0, 0, 0.5);
     border-bottom-left-radius: 16px;
-    font-family: 'Roughnecks';
+    font-family: 'Paradose';
+    font-weight: lighter;
+    z-index: 2100;
   }
-  
+  .Divparasepararyquedebonito{
+    padding: 5px;
+    margin-top: 10px;
+  }
   .sidebar.open {
-    left: 88%; /* La sidebar se desliza al abrir */
+    left: 87.5%; /* La sidebar se desliza al abrir */
     width: 120px;
-    
   }
-  
+  #Blue2{
+    padding-top: 5px;
+    height: 30px;
+    background-color: rgb(31, 31, 112);
+  }
+  #Red2{
+    padding-top: 5px;
+    height: 30px;
+    background-color: rgb(199, 25, 25);
+  }
+  .OpcionesSidebar{
+    display: flex;
+    flex-direction: column;
+    border-radius: 50px;
+    gap: 5px;
+  }
   .toggle-button, .close-button {
     background-color: #333;
     color: white;
@@ -50,32 +69,26 @@
     background: transparent;
   }
   
-  /* Lista de navegación */
-  .sidebar ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    padding: 0;
-  }
-  
-  .sidebar li {
-    margin: 15px 0;
-    width: 120px;
-    
-  }
   .OpcionSidebar:hover{
-    color: rgb(119, 119, 124);
+    color: rgb(171, 171, 209);
   }
   .OpcionSidebar{
     color: rgb(227, 241, 231);
+    font-family: 'Allenoire';
+    font-weight: lighter;
+    font-size: 18px;
+    height: 20px;
   }
   .LogOutBTN{
-    background-color: wheat;
+    background-color: rgb(44, 40, 40);
     border: none;
     padding: 10px;
-    border-radius: 5px;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    font-family: 'Allenoire';
     font-size: 15px;
+    height: 60px;
+    color: white;
   }
   .LogOutBTN:hover{
     color: white;

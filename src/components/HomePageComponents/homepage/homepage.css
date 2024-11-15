@@ -1,15 +1,13 @@
 .todo{
-    padding: 80px;
-    margin-bottom: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background:linear-gradient(-180deg, #c94141,#df8c8c);
-    
 }
 .TextoHome{
     color: white;
     font-size: 50px;
+    background-color: rgb(31,31,112);
+    padding: 80px;
 }
 .TextoHome>h2{
     font-family: 'Allenoire';
@@ -18,12 +16,6 @@
     font-family:'Paradose';
     font-weight: lighter;
 
-}
-.profe{
-    height: 380px;
-    padding-right: 80px;
-    mask-image: linear-gradient(black 70%, transparent); 
-    filter: drop-shadow(0 0 3px rgba(0, 0, 0, .8));  
 }
 .contenedor{
     display: flex;

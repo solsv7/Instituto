@@ -63,8 +63,8 @@
   src: url('../src/fonts/Ws\ Paradose\ Demo.ttf') format('truetype');
 }
 body{
-  background:linear-gradient(-180deg, #c94141,#df8c8c);
-  background-attachment: fixed;
+    background-attachment: fixed;
+    background-color: #f1efee;
 }
 .slide-in{
   position: fixed;

@@ -46,16 +46,9 @@ body{
     align-items: center;
     padding: 0 30px;
     z-index: 5000;
-    background:#c94141;
+    background-color: #f1efee;
 }
-.Separador{
-    left: 5%;
-    width: 88%;
-    height: 2px;
-    top: 90px;
-    position: absolute;
-    background-color: white;
-}
+
 #LogoInsti{
     height: 80px;
 }
@@ -69,20 +62,19 @@ body{
     padding: 10px;
     width: 120px;
     height: 40px;
-    background-color: #ffffff;
-    border-radius: 20px;
-    color: rgb(0, 0, 0);
+    background-color: rgb(199, 25, 25);
+    border-radius: 19px;
+    color: rgb(245, 241, 241);
     border: none;
     transition: background-color 0.3s ease; 
-    text-transform: uppercase;
     font-size: 18px;
-    font-family: 'Soria';
+    font-family: 'Allenoire';
     margin-right: 40px;
     
 }
 .login-button:hover{
-    background-color: rgb(0, 0, 0);
-    color:  #ffffff;
+    background-color: rgb(31, 31, 112);
+    color:  rgb(241, 241, 241);
 }
 .boton{
     margin: 10px;
@@ -99,13 +91,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
-}
-.ftPerfil{
-    width: 40px;
-}
-.ftPerfil:hover{
-    cursor: pointer;
+    margin-right: -30px;
 }
 .log-perf{
     display: flex;
@@ -118,15 +104,16 @@ body{
     padding: 1rem;
     border: none;
     outline: none;
-    padding: -10px;
+    padding: 10px;
     font-size: 20px;
     font-family: 'Paradose';
     font-weight: lighter;
-    color: wheat;
+    color: rgb(20, 20, 20);
     text-decoration: none;
 }
 #user{
     text-decoration: none;
+    max-width: 200px;
 }
 .btn::after{
     content: '';
@@ -135,7 +122,7 @@ body{
     height: 0.175rem;
     left: 0;
     bottom: 0;
-    background: rgba(0, 89, 255, 0.667);
+    background: rgb(255, 0, 0);
 }
 .btn-left::after{
     transform: scale(0,1);

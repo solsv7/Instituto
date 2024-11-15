@@ -10,7 +10,7 @@ const Niveles = () => {
                 <h4>You can choose</h4>
                 <div className='bar'></div>
             </div>
-            <div className='BloqueLvL'><h3 id='por'>Portuguese</h3><h4>or</h4><h3 id='eng'>English</h3></div>
+            
             <div className='BloqueLvL2'><h3 id='por'>Portuguese</h3><h4>or</h4><h3 id='eng'>English</h3></div>
             <div className='BloqueLvL3'><h3 id='por'>Portuguese</h3><h4>or</h4><h3 id='eng'>English</h3></div>
             <div className='BloqueLvL4'><h3 id='por'>Portuguese</h3><h4>or</h4><h3 id='eng'>English</h3></div>

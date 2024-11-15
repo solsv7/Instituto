@@ -3,7 +3,7 @@
     width: 100%;
     box-shadow: 0px 2px 20px beige;
     height: 646px;
-    margin-top: -30px;
+    
 }
 .text>h2{
     padding: 40px;
@@ -15,7 +15,7 @@
     width: 600px;
     justify-self: center;
     position: absolute;
-    top: 680px;
+    top: 520px;
     left: 23%;
     border-radius: 50px;
     filter: invert(1);
@@ -28,7 +28,7 @@
     padding: 10px;
     position: absolute;
     left: 44%;
-    top: 770px;
+    top: 610px;
     font-weight: lighter;
     font-family: 'Allenoire';
     background-color: rgb(230, 225, 225);
@@ -37,7 +37,7 @@
     position: absolute;
     z-index: 1750;
     height: 5px;
-    top: 786px;
+    top: 625px;
     left: 30%;
     width: 500px;
     background: white;
@@ -46,21 +46,23 @@
     position: absolute;
     height: 500px;
     right: 0px;
-    z-index: 1900;
-    top: 880px;
+    z-index: 1400;
+    top: 100px;
+    mask-image: linear-gradient(black 91%,transparent);
 }
 #ImagenPor{
     position: absolute;
     height: 500px;
     left: 0px;
-    z-index: 1900;
-    top: 880px;
+    z-index: 1400;
+    top: 100px;
+    mask-image: linear-gradient(black 91%,transparent);
 }
 .BloqueLvL{
     display: flex;
     position: absolute;
     opacity: 10%;
-    top: 710px;
+    top: 90px;
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -74,7 +76,7 @@
     display: flex;
     position: absolute;
     opacity: 30%;
-    top: 850px;
+    top: 80px;
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -87,7 +89,7 @@
     display: flex;
     position: absolute;
     opacity: 55%;
-    top: 990px;
+    top: 240px;
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -99,7 +101,7 @@
 .BloqueLvL>h4,.BloqueLvL2>h4,.BloqueLvL3>h4,.BloqueLvL4>h4{
     color: black;
 }
-.BloqueLvL2>#por,.BloqueLvL4>#por{
+.BloqueLvL>#por,.BloqueLvL3>#por{
     color: yellow;
 }
 .BloqueLvL>#eng,.BloqueLvL3>#eng{
@@ -109,7 +111,7 @@
     display: flex;
     position: absolute;
     opacity: 80%;
-    top: 1140px;
+    top: 400px;
     align-items: center;
     font-family: 'Soria';
     gap: 15px;
