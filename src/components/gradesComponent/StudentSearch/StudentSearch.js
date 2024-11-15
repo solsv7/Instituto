@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './StudentSearch.css';
+import './StudentSearch.css'; // Archivo CSS para estilos
 
 const StudentSearch = ({ onSelectStudent }) => {
   const [students, setStudents] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredStudents, setFilteredStudents] = useState([]);
+  const [selectedStudent, setSelectedStudent] = useState(null); // Para guardar el alumno seleccionado
 
   useEffect(() => {
     const fetchStudents = async () => {
       try {
         const response = await axios.get('http://localhost:3001/api/obtenerAlumnos');
         setStudents(response.data);
-        setFilteredStudents(response.data);
       } catch (error) {
         console.error('Error fetching students:', error);
       }
@@ -24,11 +24,22 @@ const StudentSearch = ({ onSelectStudent }) => {
   const handleSearch = (e) => {
     const term = e.target.value.toLowerCase();
     setSearchTerm(term);
-    setFilteredStudents(
-      students.filter(student =>
-        student.nombre.toLowerCase().includes(term)
-      )
-    );
+    if (term === '') {
+      setFilteredStudents([]); // Si el campo está vacío, no mostrar nada
+    } else {
+      setFilteredStudents(
+        students.filter(student =>
+          student.nombre.toLowerCase().includes(term)
+        )
+      );
+    }
+  };
+
+  const handleSelectStudent = (id, name) => {
+    onSelectStudent(id); // Llamar la función pasada por props
+    setSelectedStudent(name); // Mostrar el nombre del alumno seleccionado
+    setSearchTerm(''); // Limpiar el campo de búsqueda
+    setFilteredStudents([]); // Limpiar la lista de resultados
   };
 
   return (
@@ -38,18 +49,34 @@ const StudentSearch = ({ onSelectStudent }) => {
         placeholder="Buscar alumno por nombre"
         value={searchTerm}
         onChange={handleSearch}
+        className="search-input"
       />
-      <ul>
-        {filteredStudents.map(student => (
-          <li key={student.id_alumno}>
-            {student.nombre}
-            <button onClick={() => onSelectStudent(student.id_alumno)}>Seleccionar</button>
-          </li>
-        ))}
-      </ul>
+      
+      {/* Si hay un alumno seleccionado, mostrarlo */}
+      {selectedStudent ? (
+        <div className="selected-message">
+          <p>Alumno seleccionado: {selectedStudent}</p>
+        </div>
+      ) : (
+        // Mostrar la lista de resultados solo si hay resultados
+        filteredStudents.length > 0 && (
+          <ul className="student-list">
+            {filteredStudents.map(student => (
+              <li key={student.id_alumno} className="student-item">
+                {student.nombre}
+                <button
+                  onClick={() => handleSelectStudent(student.id_alumno, student.nombre)}
+                  className="select-button"
+                >
+                  Seleccionar
+                </button>
+              </li>
+            ))}
+          </ul>
+        )
+      )}
     </div>
   );
 };
 
 export default StudentSearch;
-

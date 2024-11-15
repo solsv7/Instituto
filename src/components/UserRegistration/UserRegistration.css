@@ -1,74 +1,83 @@
 .user-registration {
     width: 100%;
-    max-width: 600px; /* Limita el ancho máximo */
-    margin: 70px auto; /* Centra el formulario */
+    max-width: 600px;
+    margin: 70px auto;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25); /* Sombra */
-    background-color: white; /* Fondo blanco */
-    font-family: 'Inter', sans-serif; /* Fuente consistente */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+    background-color: white;
+    font-family: 'Allenoire', sans-serif; /* Fuente más estilizada */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .user-registration h2 {
-    text-align: center; /* Centra el título */
-    color: #B40A00; /* Color similar al encabezado de la tabla */
+    text-align: center;
+    color: #c71919; /* Color rojo similar a tu estilo */
+    font-family: 'Soria', sans-serif;
+    font-weight: lighter;
     margin-bottom: 20px;
+    font-size: 30px;
 }
 
 .user-registration form div {
-    margin-bottom: 15px; /* Espaciado entre campos */
+    margin-bottom: 15px;
 }
 
 .user-registration label {
-    display: block; /* Para que las etiquetas estén encima de los campos */
+    display: block;
     font-weight: bold;
-    color: #333; /* Texto oscuro */
+    color: #333;
     margin-bottom: 5px;
+    font-family: 'Paradose', sans-serif;
 }
 
 .user-registration input,
 .user-registration select {
-    width: 100%; /* Campos ocupan todo el ancho */
-    padding: 10px;
+    width: 100%;
+    padding: 12px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: 16px;
-    font-family: 'Inter', sans-serif; /* Fuente consistente */
+    font-family: 'Allenoire', sans-serif;
     box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .user-registration input:focus,
 .user-registration select:focus {
     outline: none;
-    border-color: #B40A00; /* Color de enfoque */
-    box-shadow: 0 0 5px rgba(180, 10, 0, 0.5); /* Resalta en enfoque */
+    border-color: #c71919; /* Resalta en rojo */
+    box-shadow: 0 0 5px rgba(199, 25, 25, 0.5); /* Efecto de enfoque */
 }
 
 .user-registration button {
-    width: 100%; /* Botón ocupa todo el ancho */
-    padding: 12px;
-    background-color: #B40A00; /* Color rojo del encabezado */
-    color: white; /* Texto blanco */
-    font-size: 16px;
+    width: 100%;
+    padding: 14px;
+    background-color: rgb(199, 25, 25); /* Rojo similar al diseño */
+    color: white;
+    font-size: 18px;
     font-weight: bold;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-family: 'Allenoire', sans-serif;
 }
 
 .user-registration button:hover {
-    background-color: #990800; /* Oscurece ligeramente al pasar el mouse */
+    background-color: rgb(31, 31, 112); /* Efecto hover */
 }
 
 .success {
-    color: #28a745; /* Verde para mensajes de éxito */
+    color: #28a745;
     text-align: center;
     margin-bottom: 15px;
 }
 
 .error {
-    color: #dc3545; /* Rojo para mensajes de error */
+    color: #dc3545;
     text-align: center;
     margin-bottom: 15px;
 }

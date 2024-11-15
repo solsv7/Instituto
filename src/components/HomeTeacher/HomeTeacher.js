@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import UserRegistration from '../UserRegistration/UserRegistration';
+import StudentGrades from '../gradesComponent/StudentGrades/StudentGrades';
 
 const HomeTeacher = () => {
     const location = useLocation();
@@ -20,6 +21,7 @@ const HomeTeacher = () => {
         <div>
             <h1>Bienvenido, {userName}!</h1>
             <UserRegistration />
+            <StudentGrades />
 
         </div>
         
