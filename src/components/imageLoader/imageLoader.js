@@ -20,19 +20,37 @@ const images = [
 
 const ImageLoader = () => {
   const [randomImage, setRandomImage] = useState('');
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   // Seleccionar una imagen aleatoria al cargar el componente
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * images.length);
     setRandomImage(images[randomIndex]);
+
+    // Actualizar el tamaño de la ventana en caso de cambio
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  // Estilos responsivos para Imagen7
+  const responsiveStyles = windowWidth < 768 
+    ? { height: '200px', padding: '10px' } 
+    : { height: '400px', padding: '30px' };
+
+  // Definir el estilo de la imagen
+  const imageStyle = randomImage === Imagen7 
+    ? responsiveStyles  // Estilo específico para Imagen7
+    : { height: windowWidth < 768 ? '250px' : '460px' };  // Estilo para las demás imágenes
 
   return (
     <div>
-      {randomImage && <img src={randomImage} alt="Imagen aleatoria" style={{height:'460px'}} />}
+      {randomImage && <img src={randomImage} alt="Imagen aleatoria" style={imageStyle} />}
     </div>
   );
 }
 
 export default ImageLoader;
-

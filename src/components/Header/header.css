@@ -1,44 +1,49 @@
-body{
+body {
     margin: 0px;
 }
-.Title{
+
+.Title {
     font-family: 'Allenoire';
     font-weight: lighter;
     color: #fff;
-    margin-left: -200px;
     display: flex;
     gap: 10px;
     margin-left: 20px;
     z-index: 2000;
 }
-.Titl{
+
+.Titl {
     display: flex;
     gap: 5px;
     height: 40px;
     font-size: 40px;
     z-index: 2000;
-    
 }
-.Title>h2{
+
+.Title > h2 {
     position: absolute;
     z-index: 2000;
     top: 85px;
 }
-#Blue{
+
+#Blue {
     background-color: rgb(31, 31, 112);
     padding: 1px;
     z-index: 2000;
 }
-#Red{
+
+#Red {
     background-color: rgb(199, 25, 25);
     padding: 1px;
     z-index: 2000;
 }
-.Title>h2{
+
+.Title > h2 {
     font-family: 'Soria';
     font-weight: lighter;
     z-index: 2000;
 }
+
 .header {
     height: 110px;
     display: flex;
@@ -49,15 +54,17 @@ body{
     background-color: #f1efee;
 }
 
-#LogoInsti{
+#LogoInsti {
     height: 80px;
 }
+
 .nav-links {
     display: flex;
     align-items: center;
     text-align: center;
     gap: 15px; /* Reduce el espacio entre los enlaces */
 }
+
 .login-button {
     padding: 10px;
     width: 120px;
@@ -66,40 +73,45 @@ body{
     border-radius: 19px;
     color: rgb(245, 241, 241);
     border: none;
-    transition: background-color 0.3s ease; 
+    transition: background-color 0.3s ease;
     font-size: 18px;
     font-family: 'Allenoire';
     margin-right: 40px;
-    
 }
-.login-button:hover{
+
+.login-button:hover {
     background-color: rgb(31, 31, 112);
-    color:  rgb(241, 241, 241);
+    color: rgb(241, 241, 241);
 }
-.boton{
+
+.boton {
     margin: 10px;
     margin-top: 15px;
     justify-content: center;
     align-items: center;
     display: flex;
 }
-.log-perf>button{
+
+.log-perf > button {
     background: none;
     border: none;
 }
-.BTNSidebar{
+
+.BTNSidebar {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right: -30px;
 }
-.log-perf{
+
+.log-perf {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
 }
-.btn{
+
+.btn {
     position: relative;
     padding: 1rem;
     border: none;
@@ -111,11 +123,13 @@ body{
     color: rgb(20, 20, 20);
     text-decoration: none;
 }
-#user{
+
+#user {
     text-decoration: none;
     max-width: 200px;
 }
-.btn::after{
+
+.btn::after {
     content: '';
     position: absolute;
     width: 100%;
@@ -124,44 +138,129 @@ body{
     bottom: 0;
     background: rgb(255, 0, 0);
 }
-.btn-left::after{
-    transform: scale(0,1);
+
+.btn-left::after {
+    transform: scale(0, 1);
     transform-origin: 0% 100%;
     transition: transform 0.3s ease;
 }
-.btn-left:hover::after{
-    transform: scale(1,1);
+
+.btn-left:hover::after {
+    transform: scale(1, 1);
 }
+
 @keyframes enter {
-    from{
+    from {
         display: none;
         opacity: 0;
         top: -50px;
     }
-    to{
+    to {
         display: block;
         opacity: 1;
         top: 90px;
         position: fixed;
     }
-    
 }
+
 @keyframes leave {
-    from{
+    from {
         display: block;
         opacity: 1;
         top: 90px;
         position: fixed;
-        
     }
-    to{
+    to {
         display: none;
         opacity: 0;
         top: -50px;
-        
     }
-    
 }
 
+/* Estilos Responsive */
+@media (max-width: 1200px) {
+    .Title > h2 {
+        top: 70px;
+        font-size: 30px;
+    }
 
+    .Titl {
+        font-size: 30px;
+    }
 
+    .header {
+        padding: 0 20px;
+    }
+
+    .login-button {
+        width: 100px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .Title {
+        flex-direction: column;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .Titl {
+        font-size: 24px;
+        height: auto;
+    }
+
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .login-button {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    #LogoInsti {
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .Title {
+        font-size: 18px;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .Titl {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .login-button {
+        width: 100%;
+        font-size: 14px;
+        z-index: 1000;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 5px;
+        z-index: 1000;
+    }
+
+    .header {
+        padding: 10px;
+        z-index: 1000;
+    }
+
+    #LogoInsti {
+        height: 50px;
+    }
+}

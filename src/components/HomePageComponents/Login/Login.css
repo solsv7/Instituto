@@ -1,23 +1,20 @@
-.login-container > .login-form  {
-    display: none; 
-    position:fixed;
+.login-container > .login-form {
+    display: none;
+    position: fixed;
     top: 90px;
     left: 81.5%;
     background: rgba(0, 0, 0, 0.11);
-    border-radius: 10px; 
-    padding: 30px; 
-    z-index: 2000; 
+    border-radius: 10px;
+    padding: 30px;
+    z-index: 2000;
     width: 150px;
     backdrop-filter: blur(2px);
     border: solid 1px white;
-    
-    
-   
 }
+
 .login-container {
     display: flex; /* Cambia el contenedor de login a flex */
     align-items: center; /* Centra los elementos */
-    
 }
 
 /* Otros estilos */
@@ -33,25 +30,14 @@ label {
     margin-bottom: 5px;
 }
 
-input[type="text"] {
+input[type="text"], input[type="password"] {
     display: block;
     height: 20px;
     opacity: 100%;
     background-color: rgb(223, 233, 223);
     width: 150px;
     margin-bottom: 20px;
-        
 }
-input[type="password"]{
-    display: block;
-    height: 20px;
-    opacity: 100%;
-    background-color: rgb(223, 233, 223);
-    width: 150px;
-    margin-bottom: 20px;   
-    
-}
-
 
 button[type="submit"] {
     background-color: #000000;
@@ -69,18 +55,89 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #eaebf1; 
+    background-color: #eaebf1;
     color: #000000;
-    
 }
-#formularioLogin{
+
+#formularioLogin {
     justify-content: center;
     align-items: center;
- 
 }
-.msgError{
-    color:#B40A00;
+
+.msgError {
+    color: #B40A00;
     text-align: center;
     padding-bottom: 15px;
     font-family: 'Ristorante';
 }
+
+/* Estilos Responsive */
+@media (max-width: 1200px) {
+    .login-container > .login-form {
+        left: 75%; /* Ajustamos la posición del formulario en pantallas medianas */
+        width: 200px; /* Aumentamos un poco el ancho del formulario */
+    }
+
+    input[type="text"], input[type="password"], button[type="submit"] {
+        width: 180px; /* Aumentamos el ancho de los inputs y el botón */
+    }
+}
+
+@media (max-width: 768px) {
+    .login-container > .login-form {
+        left: 60%; /* Ajustamos la posición en tablets */
+        width: 180px; /* Ajustamos el tamaño del formulario para pantallas más pequeñas */
+        top: 70px; /* Bajamos un poco el formulario en tablets */
+    }
+
+    input[type="text"], input[type="password"], button[type="submit"] {
+        width: 160px; /* Ajustamos el ancho de los inputs y el botón en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .login-container > .login-form {
+        left: 30%; /* Centramos el formulario en pantallas móviles */
+        top: 250px; /* Bajamos más el formulario para que no se superponga */
+        width: 150px; /* Reducimos el ancho del formulario en móviles */
+        transform: translateX(-50%); /* Centramos completamente el formulario en móviles */
+    }
+
+    input[type="text"], input[type="password"] {
+        width: 140px; /* Reducimos el ancho de los campos de texto */
+    }
+
+    button[type="submit"] {
+        width: 140px; /* Reducimos el ancho del botón en móviles */
+        padding: 8px; /* Reducimos el padding para mejor ajuste */
+    }
+    @keyframes enter {
+        from {
+            display: none;
+            opacity: 0;
+            top: -50px;
+        }
+        to {
+            display: block;
+            opacity: 1;
+            top: 250px;
+            position: fixed;
+        }
+    }
+    
+    @keyframes leave {
+        from {
+            display: block;
+            opacity: 1;
+            top: 250px;
+            position: fixed;
+        }
+        to {
+            display: none;
+            opacity: 0;
+            top: -50px;
+        }
+    }
+}
+
+

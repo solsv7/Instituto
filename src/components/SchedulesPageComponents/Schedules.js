@@ -3,7 +3,7 @@ import './Schedules.css'
 
 const Schedules = () => {
     return(
-        <div>
+        <div className="Horarios">
             <h3>Our Schedule</h3>
             <div>
                 <table className="TablaHorarios">

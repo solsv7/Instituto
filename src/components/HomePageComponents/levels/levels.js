@@ -10,15 +10,15 @@ const Niveles = () => {
                 <h4>You can choose</h4>
                 <div className='bar'></div>
             </div>
-            
-            <div className='BloqueLvL2'><h3 id='por'>Portuguese</h3><h4>or</h4><h3 id='eng'>English</h3></div>
-            <div className='BloqueLvL3'><h3 id='por'>Portuguese</h3><h4>or</h4><h3 id='eng'>English</h3></div>
-            <div className='BloqueLvL4'><h3 id='por'>Portuguese</h3><h4>or</h4><h3 id='eng'>English</h3></div>
-            <div>
-                <img src={imgEn} id='ImagenEn' alt=''/>
+            <div className='Bloques'>
+                <div className='BloqueLvL2'><h3 id='por'>Portuguese</h3><h4>or</h4><h3 id='eng'>English</h3></div>
+                <div className='BloqueLvL3'><h3 id='por'>Portuguese</h3><h4>or</h4><h3 id='eng'>English</h3></div>
+                <div className='BloqueLvL4'><h3 id='por'>Portuguese</h3><h4>or</h4><h3 id='eng'>English</h3></div>
             </div>
-            <div>
+            <div className='ContImgs'>
+            
                 <img src={imgPr} id='ImagenPor' alt=''/>
+                <img src={imgEn} id='ImagenEn' alt=''/>
             </div>
         </div>
     );

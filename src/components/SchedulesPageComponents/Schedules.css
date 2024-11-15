@@ -1,15 +1,49 @@
-.Horarios{
+.Niveles {
     display: flex;
     flex-direction: column;
     gap: 30px;
 }
-.Niveles{
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-.TablaHorarios{
+
+.TablaHorarios {
     width: 1000px;
     justify-self: center;
     border-radius: 22px;
+}
+
+/* Estilos Responsive */
+@media (max-width: 1200px) {
+    .Horarios{
+        justify-self: center;
+    }
+    .TablaHorarios {
+        width: 90%; /* Reducimos el ancho al 90% del contenedor */
+    }
+}
+
+@media (max-width: 768px) {
+    .Horarios{
+        justify-self: center;
+    }
+    .Horarios, .Niveles {
+        gap: 20px; /* Reducimos el espacio entre los elementos */
+    }
+
+    .TablaHorarios {
+        width: 100%; /* La tabla ocupa el 100% del ancho del contenedor */
+    }
+}
+
+@media (max-width: 480px) {
+    .Horarios{
+        justify-self: center;
+    }
+    .Horarios, .Niveles {
+        gap: 15px; /* Ajustamos el espacio entre los elementos para pantallas móviles */
+    }
+
+    .TablaHorarios {
+        width: 100%; /* Mantiene el 100% del contenedor */
+        font-size: 14px; /* Reducimos el tamaño del texto para que se ajuste mejor */
+        border-radius: 15px; /* Ajustamos el borde para una mejor apariencia en móvil */
+    }
 }
