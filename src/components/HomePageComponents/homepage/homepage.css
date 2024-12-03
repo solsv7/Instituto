@@ -3,7 +3,6 @@
     justify-content: center;
     align-items: center;
 }
-
 .TextoHome {
     color: white;
     font-size: 50px;
@@ -26,39 +25,4 @@
     justify-content: center;
     align-items: center;
     border-radius: 20px;
-}
-
-/* Estilos Responsive */
-@media (max-width: 1200px) {
-    .TextoHome {
-        font-size: 40px; /* Reducimos el tamaño del texto */
-        padding: 60px;   /* Reducimos el padding */
-    }
-
-    .contenedor {
-        width: 80%;      /* Ajustamos el ancho para pantallas medianas */
-    }
-}
-
-@media (max-width: 768px) {
-    .TextoHome {
-        font-size: 30px; /* Reducimos más el tamaño del texto */
-        padding: 40px;   /* Ajustamos el padding para mejor visualización en tabletas */
-    }
-
-    .contenedor {
-        width: 90%;      /* La contenedor ocupa el 90% del ancho del contenedor padre */
-    }
-}
-
-@media (max-width: 480px) {
-    .TextoHome {
-        font-size: 24px; /* Para pantallas móviles, reducimos el tamaño del texto */
-        padding: 20px;   /* Reducimos considerablemente el padding para que se ajuste mejor */
-    }
-
-    .contenedor {
-        width: 100%;     /* La contenedor ocupa el 100% del ancho del contenedor padre */
-        border-radius: 10px; /* Ajustamos el borde para que luzca mejor en pantallas móviles */
-    }
 }

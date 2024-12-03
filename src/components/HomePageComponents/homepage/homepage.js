@@ -1,6 +1,6 @@
 import React from "react";
 import './homepage.css';
-import ImageLoader from "../../imageLoader/imageLoader";
+import ImageLoader from "../../functionalComponent/imageLoader/imageLoader";
 
 const Homepag = () => {
     return(

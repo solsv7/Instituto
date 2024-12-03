@@ -1,0 +1,52 @@
+.table-container {
+    width: 1100px;
+    padding-bottom: 40px;
+    margin: 20px auto; /* Centra la tabla */
+    border-radius: 10px;
+    overflow: hidden; /* Para bordes redondeados */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25); /* Sombra para la tabla */
+    background-color: rgb(255, 255, 255); /* Fondo blanco para la tabla */
+}
+.table-container>h2{
+    text-align: center;
+    font-family: 'Allenoire';
+}
+.Tabla-Notas {
+    width: 1000px; /* Asegura que la tabla ocupe todo el ancho */
+    border-collapse: collapse; /* Colapsar bordes */
+    justify-self: center;
+    
+}
+
+th, td {
+    padding: 15px; /* Espaciado interno en celdas */
+    text-align: center; /* Centra el texto en las celdas */
+    border-bottom: 1px solid #ccc; /* Línea debajo de las celdas */
+    font-family: 'Paradose';
+    letter-spacing: 0.5px;
+    font-weight: lighter;
+}
+#NotaNumero{
+    font-family: 'Allenoire';
+}
+.Periodo{
+    background-color: #706565;
+    color: white;
+}
+th {
+    background-color: #2e2929; /* Color de fondo para encabezados */
+    color: white; /* Color de texto blanco en encabezados */
+    font-family: 'Allenoire';
+}
+
+tr:nth-child(even) {
+    background-color: #e6cfcf; /* Color de fondo alternativo para filas */
+}
+
+tr:hover {
+    background-color: #d1c5f3; /* Color de fondo al pasar el mouse sobre la fila */
+}
+
+tr:last-child td {
+    border-bottom: none; /* Sin borde en la última fila */
+}

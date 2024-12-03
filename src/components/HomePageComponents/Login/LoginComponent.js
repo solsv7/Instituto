@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Login.css';
-import { UserContext } from '../../UserContext/UserContext'; // Importar el contexto
+import { UserContext } from '../../functionalComponent/UserContext/UserContext'; // Importar el contexto
 
 const LoginComponent = () => {
     const [dni, setDni] = useState('');
@@ -15,7 +15,7 @@ const LoginComponent = () => {
         e.preventDefault();
         try {
             const response = await axios.post('http://localhost:3001/api/auth/login', { dni, password });
-            const { token, user } = response.data;
+            const { token, user, rol } = response.data;
 
             localStorage.setItem('token', token);
             localStorage.setItem('user', JSON.stringify(user));
@@ -42,7 +42,9 @@ const LoginComponent = () => {
     return (
         <div>
             <form onSubmit={handleLogin} id="formularioLogin">
+                <div className='ContentLogin'>
                 <input
+                className='DniInput'
                     type="text"
                     value={dni}
                     onChange={(e) => setDni(e.target.value)}
@@ -50,6 +52,7 @@ const LoginComponent = () => {
                     required
                 />
                 <input
+                className='PasswordInput'
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
@@ -57,7 +60,8 @@ const LoginComponent = () => {
                     required
                 />
                 {error && <div className="msgError">{error}</div>}
-                <button type="submit">Sign in</button>
+                <button type="submit" className='BTNSignIn'>Sign in</button>
+                </div>
             </form>
         </div>
     );

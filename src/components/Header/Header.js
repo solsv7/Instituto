@@ -1,18 +1,19 @@
 import React, { useContext, useState } from 'react';
 import './header.css';
 import Login from '../HomePageComponents/Login/LoginComponent';
-import axios from 'axios';
 import Sidebar from '../sidebar/sidebar';
 import { Link } from 'react-router-dom';
-import { UserContext } from '../UserContext/UserContext'; // Importar el contexto
+import { UserContext } from '../functionalComponent/UserContext/UserContext'; // Importar el contexto
 import { useNavigate } from 'react-router-dom';
+
 
 const Header = () => {
     const token = localStorage.getItem('token');
+    const user = JSON.parse(localStorage.getItem('user'));
     const { userName} = useContext(UserContext); // Usar el contexto
-    const { setUserName } = useContext(UserContext); 
     const [show, setShow] = useState(false);
-    
+    const navigate = useNavigate();
+
     function changeVis() {
         setShow(!show);
         if (show) {
@@ -23,14 +24,23 @@ const Header = () => {
             document.getElementById('formulario').style.display = 'block';
         }
     }
-    
+    function checkRole(){
+        if (user.rol === 1) {
+            navigate('/home-admin');
+        } else if (user.rol === 2) {
+            navigate('/home-teacher');
+        } else if (user.rol === 3) {
+            navigate('/home-student');
+        } else {
+            navigate('/ProfilePage');
+        }
+    }
 
     return (
-        <div>
             <header className="header">
                 <div className='ContenedorTitle'>
                     <div className="Title">
-                        <div className='Titl'><p id='Blue'>S</p><p id='Red'>t</p></div><div className='Titl'><p id='Blue'>T</p><p id='Red'>h</p><p id='Blue'>o</p><p id='Red'>m</p><p id='Blue'>a</p><p id='Blue'>s</p></div>
+                        <div className='Word'><p id='Blue'>S</p><p id='Red'>t</p></div><div className='Word'><p id='Blue'>T</p><p id='Red'>h</p><p id='Blue'>o</p><p id='Red'>m</p><p id='Blue'>a</p><p id='Blue'>s</p></div>
                     </div>
                 </div>
                 <nav className="nav-links">
@@ -42,12 +52,10 @@ const Header = () => {
                     <div className="login-container">
                         {token ? (
                             <div className="log-perf">
-                                <button>
-                                    <Link to="/ProfilePage" id='user'>
+                                <button onClick={checkRole}>
                                     <h3 className='btn btn-left'  id='user'>
-                                    {userName ? `${userName}` : "Username"}
+                                    {userName ? `${userName}` : "Usuario"}
                                     </h3>
-                                    </Link>
                                 </button>
                                 <div className='BTNSidebar'>
                                 <Sidebar />
@@ -65,7 +73,6 @@ const Header = () => {
                     </div>
                 </nav>
             </header>
-        </div>
     );
 };
 
