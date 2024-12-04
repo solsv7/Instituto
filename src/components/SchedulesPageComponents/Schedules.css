@@ -1,49 +1,55 @@
-.Niveles {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+.Horarios{
+    padding: 0px;
+    height: 400px;
+    padding-bottom: 40px;
+    margin-top: -40px;
 }
+.Horarios>h3{
+    text-align: center;
+    padding: 20px;
+    font-size: 30px;
+    font-family: 'Allenoire';
+    margin-bottom: -30px;
+    color: #141414;
+    background-color: rgb(230, 225, 225);
+    filter: invert(1);
+    width: 400px;
+    border-radius: 22px;
+    position: absolute;
+    left: 400px;
+    margin-top: -40px;
+}
+.SeparadorTabla{
+    padding: 20px;
+    background-color: rgb(196, 188, 188);
+    height: 400px;
 
+}
 .TablaHorarios {
     width: 1000px;
     justify-self: center;
     border-radius: 22px;
+    margin-bottom: 200px;
+    background-color: white;
 }
-
-/* Estilos Responsive */
-@media (max-width: 1200px) {
-    .Horarios{
-        justify-self: center;
-    }
-    .TablaHorarios {
-        width: 90%; /* Reducimos el ancho al 90% del contenedor */
-    }
+.TablaHorarios>th{
+    color: #141414 !important;
+    background-color: rgb(230, 225, 225) !important;
+    filter: invert(1) !important;
 }
-
-@media (max-width: 768px) {
-    .Horarios{
-        justify-self: center;
-    }
-    .Horarios, .Niveles {
-        gap: 20px; /* Reducimos el espacio entre los elementos */
-    }
-
-    .TablaHorarios {
-        width: 100%; /* La tabla ocupa el 100% del ancho del contenedor */
-    }
+.Horas{
+    font-family: 'Allenoire';
+    font-weight: lighter;
 }
-
-@media (max-width: 480px) {
-    .Horarios{
-        justify-self: center;
-    }
-    .Horarios, .Niveles {
-        gap: 15px; /* Ajustamos el espacio entre los elementos para pantallas móviles */
-    }
-
-    .TablaHorarios {
-        width: 100%; /* Mantiene el 100% del contenedor */
-        font-size: 14px; /* Reducimos el tamaño del texto para que se ajuste mejor */
-        border-radius: 15px; /* Ajustamos el borde para una mejor apariencia en móvil */
-    }
+#TLC{
+    border-top-left-radius: 22px;
+}
+#TRC{
+    border-top-right-radius: 22px;
+}
+#BLC{
+    border-bottom-left-radius: 22px;
+}
+#BRC{
+    border-bottom-right-radius: 22px;
 }

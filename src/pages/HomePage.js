@@ -8,10 +8,10 @@ import transition from "../transition";
 const HomePage = () =>{
     return(
         <div>
-            <Niveles />
-            <Homepag />
+            <Niveles/>
+            <Homepag/>
             <TextAbout/>
-            <Schedules />
+            <Schedules/>
         </div>
     )
 }

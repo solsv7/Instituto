@@ -64,12 +64,17 @@
     margin-right: 40px;
     margin-top: 0px;
 }
-
+#home-section,#about-section,#schedule-section,#blog-section,#videos-section{
+    display: none;
+}
 .login-button:hover {
     background-color: rgb(31, 31, 112);
     color: rgb(241, 241, 241);
 }
-
+.linkStyle{
+    text-decoration: none;
+    color: rgb(20, 20, 20);
+}
 .log-perf > button {
     background: none;
     border: none;
@@ -102,6 +107,7 @@
     font-weight: lighter;
     color: rgb(20, 20, 20);
     text-decoration: none;
+    cursor: pointer;
 }
 
 #user {
@@ -118,16 +124,19 @@
     left: 0;
     bottom: 0;
     background: rgb(255, 0, 0);
+    cursor: pointer;
 }
 
 .btn-left::after {
     transform: scale(0, 1);
     transform-origin: 0% 100%;
     transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
 .btn-left:hover::after {
     transform: scale(1, 1);
+    cursor: pointer;
 }
 
 @keyframes enter {
