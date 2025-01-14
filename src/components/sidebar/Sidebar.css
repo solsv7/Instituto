@@ -23,6 +23,13 @@
     left: 87.5%; /* La sidebar se desliza al abrir */
     width: 120px;
   }
+  .sidebar.closed>.Divparasepararyquedebonito{
+    margin-top: -30px;
+  }
+  .sidebar.closed>h2{
+    margin-top: 0px;
+    padding: 0px;
+  }
   .sidebar.open>h2{
     margin: 0;
   }
@@ -88,7 +95,8 @@
     border-bottom-left-radius: 12px;
     font-family: 'Allenoire';
     font-size: 15px;
-    height: 60px;
+    height: 60px !important;
+    width: 120px !important;
     color: white;
     margin-top: 0px;
   }

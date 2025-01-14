@@ -10,8 +10,8 @@ const TextAbout = () => {
                 <h4>Portuguese & English</h4>
 
                 <div className="Years">
-                    <h1>+30</h1>
-                    <h3>Years teaching and helping everyone improving their language skills</h3>
+                    <h1>+30 Years</h1>
+                    <h3>Teaching and helping everyone improving their language skills</h3>
                 </div>
             </div>
         </div>

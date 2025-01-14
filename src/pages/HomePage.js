@@ -3,6 +3,7 @@ import Homepag from "../components/HomePageComponents/homepage/homepage"
 import Niveles from "../components/HomePageComponents/levels/levels";
 import TextAbout from "../components/AboutPageComponents/TextAbout/TextAbout";
 import Schedules from "../components/SchedulesPageComponents/Schedules";
+import Gallery from "../components/Gallery/Gallery";
 import transition from "../transition";
 
 const HomePage = () =>{
@@ -12,6 +13,7 @@ const HomePage = () =>{
             <Homepag/>
             <TextAbout/>
             <Schedules/>
+            <Gallery/>
         </div>
     )
 }

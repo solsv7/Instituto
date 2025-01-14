@@ -24,7 +24,7 @@ const StudentSearch = ({ onSelectStudent }) => {
   const handleSearch = (e) => {
     const term = e.target.value.toLowerCase();
     setSearchTerm(term);
-    if (term === '') {
+    if (term === ''){
       setFilteredStudents(['']); // Si el campo está vacío, no mostrar nada
     } else {
       setFilteredStudents(
@@ -34,7 +34,9 @@ const StudentSearch = ({ onSelectStudent }) => {
       );
     }
   };
-
+  const resetSelectStudent = () => {
+    setSelectedStudent('');
+  }
   const handleSelectStudent = (id, name) => {
     onSelectStudent(id); // Llamar la función pasada por props
     setSelectedStudent(name); // Mostrar el nombre del alumno seleccionado
@@ -53,6 +55,7 @@ const StudentSearch = ({ onSelectStudent }) => {
         className="Input-Buscar"
       />
         <p className='Mensaje-Seleccionado'>Alumno Seleccionado</p>
+        <h3 onClick={resetSelectStudent} className='erase-button'>↻ Borrar</h3>
       {/* Si hay un alumno seleccionado, mostrarlo */}
       {selectedStudent ? (
         <div className='a'>

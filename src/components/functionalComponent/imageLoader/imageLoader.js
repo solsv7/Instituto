@@ -36,19 +36,10 @@ const ImageLoader = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Estilos responsivos para Imagen7
-  const responsiveStyles = windowWidth < 768 
-    ? { height: '200px', padding: '10px' } 
-    : { height: '400px', padding: '30px' };
-
-  // Definir el estilo de la imagen
-  const imageStyle = randomImage === Imagen7 
-    ? responsiveStyles  // Estilo específico para Imagen7
-    : { height: windowWidth < 768 ? '250px' : '460px' };  // Estilo para las demás imágenes
 
   return (
     <div>
-      {randomImage && <img src={randomImage} alt="Imagen aleatoria" style={imageStyle} />}
+      {randomImage && <img src={randomImage} alt="Imagen aleatoria" id="ImagenDeLoader"/>}
     </div>
   );
 }

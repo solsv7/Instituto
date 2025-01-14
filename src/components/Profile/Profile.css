@@ -10,28 +10,17 @@
     padding: 10px;
     text-align: center;
     font-family: 'allenoire';
+    font-size: 35px;
 }
 .userData{
     margin-top: -70px;
     padding: 50px;
 }
-.info{
-    padding-left: 90px;
-    padding-bottom: 40px;
-    justify-self: center;
-    width: 400px;
-    border: solid 1px rgb(192, 185, 185);
-    border-radius: 25px;
+.userData h3{
+    font-size: 30px;
 }
-.noc{
-    display: flex;
-    gap: 30px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    font-family: 'Soria';
-    font-weight: lighter;
-    letter-spacing: 0.5px;
-    text-align: left;
+.Rol{
+    color: rgb(228, 32, 32);
 }
 .noce{
     display: flex;

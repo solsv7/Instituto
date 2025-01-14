@@ -87,6 +87,20 @@
 .select-button:hover{
   background-color: #2a119c;
 }
+.erase-button{
+  position: absolute;
+  right: 400px;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 140px;
+  cursor: pointer;
+  border: solid 1px black;
+}
+.erase-button:hover{
+  color: white;
+  font-weight: lighter;
+  background-color: black;
+}
 
 .Mensaje-Seleccionado{
   background-color: rgb(34, 31, 31);

@@ -29,38 +29,15 @@
 }
 
 /* Estilos Responsive */
-@media (max-width: 1200px) {
-    .container-redes {
-        top: 85%; /* Ajustamos la posición del contenedor en pantallas más pequeñas */
-        right: 2%; /* Aumentamos el margen derecho */
+@media (max-width: 600px) {
+    .container-redes{
+        position: fixed;
+        left: 440px;
     }
-
-    #instalogo, #facelogo {
-        height: 25px; /* Reducimos el tamaño de los logos en pantallas medianas */
-        padding: 4px; /* Reducimos el padding */
+    #facelogo{
+        margin-top: 0px;
     }
-}
-
-@media (max-width: 768px) {
-    .container-redes {
-        top: 90%; /* Movemos más abajo en pantallas de tablet */
-        right: 3%; /* Aumentamos más el margen derecho */
-    }
-
-    #instalogo, #facelogo {
-        height: 20px; /* Reducimos aún más el tamaño de los logos para pantallas de tablet */
-        padding: 3px; /* Ajustamos el padding para mantener una proporción adecuada */
-    }
-}
-
-@media (max-width: 480px) {
-    .container-redes {
-        top: 95%; /* En móviles, lo posicionamos más abajo */
-        right: 50%; /* Mayor margen derecho en móviles */
-    }
-
-    #instalogo, #facelogo {
-        height: 18px; /* Tamaño más pequeño de logos en pantallas móviles */
-        padding: 2px; /* Reducimos aún más el padding */
+    #instalogo{
+        margin-bottom: -40px;
     }
 }

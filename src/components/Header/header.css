@@ -6,6 +6,7 @@
     padding: 0 30px;
     margin-top: -90px;
     z-index: 5000;
+    width: device-width;
 
 }
 .Title {
@@ -24,7 +25,10 @@
     gap: 5px;
     font-size: 40px;
 }
-
+#inscription{
+    margin: 0px;
+    margin-right: 20px;
+}
 #Blue {
     background-color: rgb(31, 31, 112);
     padding: 1px;
@@ -63,6 +67,7 @@
     font-family: 'Allenoire';
     margin-right: 40px;
     margin-top: 0px;
+    cursor: pointer;
 }
 #home-section,#about-section,#schedule-section,#blog-section,#videos-section{
     display: none;
@@ -70,6 +75,9 @@
 .login-button:hover {
     background-color: rgb(31, 31, 112);
     color: rgb(241, 241, 241);
+}
+.BTNAvisos{
+    width: 50px;
 }
 .linkStyle{
     text-decoration: none;
@@ -165,4 +173,67 @@
         opacity: 0;
         top: -50px;
     }
+}
+@media (max-width:600px) {
+    .header{
+        width: 100vh;
+    }
+    .nav-links{
+        display: grid;
+        grid-template-columns: auto;
+        gap: 0px;
+        margin: 0px;
+        position: absolute;
+        top: 90px;
+        left: 200px;
+    }
+    .btn{
+        margin-top: -5px;
+        margin-bottom: -5px;
+    }
+    .Title{
+        margin-top: -85px;
+        left: 30px;
+        position: absolute;
+    }
+    .login-button{
+        position: absolute;
+        left: 130px;
+        top: -65px;
+    }
+    @keyframes enter {
+        from {
+            display: none;
+            opacity: 0;
+            top: -50px;
+            left: 140px;
+        }
+        to {
+            display: block;
+            opacity: 1;
+            top: 90px;
+            position: fixed;
+            left: 140px;
+        }
+    }
+    
+    @keyframes leave {
+        from {
+            display: block;
+            opacity: 1;
+            top: 90px;
+            left: 140px;
+            position: fixed;
+        }
+        to {
+            display: none;
+            opacity: 0;
+            top: -50px;
+            left:140px;
+        }
+    }
+    #formulario{
+        left: 140px;
+    }
+
 }

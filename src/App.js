@@ -7,7 +7,6 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import BlogPage from './pages/BlogPage';
 import SchedulesPage from './pages/SchedulesPage';
-import Redes from './components/Redes/Redes';
 import ProfilePage from './pages/ProfilePage';
 import ClassesPage from './pages/ClassesPage';
 import HomeStudent from './components/HomeUsers/HomeStudent';
@@ -16,6 +15,7 @@ import HomeAdmin from './components/HomeUsers/HomeAdmin';
 import CrearUsuario from './components/functionalComponent/UserRegistration/UserRegistration';
 import StudentGrades from './components/functionalComponent/gradesComponent/StudentGrades/StudentGrades';
 import GradesTable from './components/functionalComponent/gradesComponent/grades';
+import AdvicesPage from './components/Advices/AdvicesPage';
 import WorkInProgress from './components/WorkInProgress/WorkInProgres';
 
 
@@ -25,7 +25,6 @@ const App = () => {
     const location = useLocation();
     return (
         <>
-        <Redes></Redes>
             <Header />
             <AnimatePresence mode='wait'>
             <Routes location={location} key={location.pathname}>
@@ -42,6 +41,7 @@ const App = () => {
             <Route path='/Student-Marks' element={<GradesTable />} />
             <Route path='/Not-Ready' element={<WorkInProgress />} />
             <Route path='/ClassesPage' element={<ClassesPage />} />
+            <Route path='/Advices' element={<AdvicesPage />} />
             </Routes>
             </AnimatePresence>
             

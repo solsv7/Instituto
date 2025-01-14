@@ -2,6 +2,7 @@ import React, { useContext, useRef, useState } from 'react';
 import './header.css';
 import Login from '../HomePageComponents/Login/LoginComponent';
 import Sidebar from '../sidebar/sidebar';
+import BandejaMSG from '../Advices/BandejaMSG';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { UserContext } from '../functionalComponent/UserContext/UserContext';
 import { Link } from 'react-router-dom';
@@ -90,9 +91,6 @@ const Header = () => {
       <nav className="nav-links">
         {/* Navegación */}
         <h3 className="btn btn-left" onClick={() => goComponent(sectionHome,-100)}><Link to='/' className='linkStyle'>Home</Link></h3>
-        <h3 className="btn btn-left" onClick={() => goComponent(sectionAbout, 1600)}>About Us</h3>
-        <h3 className="btn btn-left" onClick={() => goComponent(sectionSchedule, 2600)}>Schedule</h3>
-        <h3 className="btn btn-left" onClick={() => goComponent(sectionBlog)}>Blog</h3>
         <h3 className="btn btn-left" onClick={() => goComponent(sectionVideos)}>Videos</h3>
 
         {/* Contenedor de login */}
@@ -104,12 +102,16 @@ const Header = () => {
                   {userName || 'Usuario'}
                 </h3>
               </button>
+              <div className='BTNAvisos'>
+                <BandejaMSG />
+              </div>
               <div className="BTNSidebar">
                 <Sidebar />
               </div>
             </div>
           ) : (
             <>
+                <h3 className="btn btn-left" id='inscription'>Inscripcion</h3>
                 <button className="login-button" onClick={changeVis}>Sign In</button>
                 
                 <div className="login-form" id="formulario">

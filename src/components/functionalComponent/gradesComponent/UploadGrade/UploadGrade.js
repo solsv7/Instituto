@@ -86,21 +86,11 @@ const UploadGrade = ({ selectedStudentId }) => {
             <tr key={period.id_periodo}>
               <td>{period.nombre}</td>
               {categories.map((category) => {
-                const existingGrade = grades.find(
-                  (grade) => grade.periodId === period.id_periodo && grade.categoryId === category.id_tipo
-                );
+                const existingGrade = grades.find((grade) => grade.periodId === period.id_periodo && grade.categoryId === category.id_tipo);
 
                 return (
                   <td key={category.id_tipo}>
-                    <input
-                      type="number"
-                      step="0.5"
-                      className='inputNota'
-                      value={existingGrade ? existingGrade.grade : ''}
-                      onChange={(e) =>
-                        handleGradeChange(period.id_periodo, category.id_tipo, e.target.value)
-                      }
-                    />
+                    <input type="number" step="0.5" className='inputNota' value={1} onChange={(e) => handleGradeChange(period.id_periodo, category.id_tipo, e.target.value)} />
                   </td>
                 );
               })}

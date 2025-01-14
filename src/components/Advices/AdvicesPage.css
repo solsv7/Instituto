@@ -1,0 +1,45 @@
+.AdviceContent{
+    background-color: white;
+    justify-self: center;
+    width: 500px;
+    margin: 10px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    padding-bottom: 20px;
+}
+.AdviceContent h1{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: rgb(39, 37, 37);
+    color: white;
+    margin: 0px;
+}
+.OpcionesAlumnos{
+    width: 500px;
+}
+.AdviceContent select{
+    padding: 10px;
+    width: 300px;
+}
+.AdviceContent .boton-enviar{
+    background-color: rgb(230, 26, 26);
+    padding: 20px;
+    width: 300px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+}
+.AdviceContent .boton-enviar:hover{
+    background-color: rgb(30, 30, 177);
+}
+.advicesForm{
+    justify-self: center
+}
+.advicesForm select{
+    margin: 0px;
+}
+textarea{
+    width: 300px;
+}

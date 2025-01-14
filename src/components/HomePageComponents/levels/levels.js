@@ -16,7 +16,6 @@ const Niveles = () => {
                 <div className='BloqueLvL4'><h3 id='por'>Portuguese</h3><h4>or</h4><h3 id='eng'>English</h3></div>
             </div>
             <div className='ContImgs'>
-            
                 <img src={imgPr} id='ImagenPor' alt=''/>
                 <img src={imgEn} id='ImagenEn' alt=''/>
             </div>

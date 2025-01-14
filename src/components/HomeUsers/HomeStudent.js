@@ -1,6 +1,5 @@
 import { useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Grades from '../functionalComponent/gradesComponent/grades'
 import Profile from '../Profile/Profile';
 import transition from '../../transition';
 
@@ -33,9 +32,7 @@ const HomeStudent = () => {
 
     return (
         <div>
-            <h1 className='nombreUsuario'>Bienvenido, {user?.nombre}!</h1>
             <Profile />
-
         </div>
         
     );

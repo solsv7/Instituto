@@ -16,7 +16,7 @@
     width: 400px;
     border-radius: 22px;
     position: absolute;
-    left: 400px;
+    left: 440px;
     margin-top: -40px;
 }
 .SeparadorTabla{
@@ -29,7 +29,6 @@
     width: 1000px;
     justify-self: center;
     border-radius: 22px;
-    margin-bottom: 200px;
     background-color: white;
 }
 .TablaHorarios>th{
@@ -52,4 +51,29 @@
 }
 #BRC{
     border-bottom-right-radius: 22px;
+}
+@media (max-width:600px) {
+    .TablaHorarios{
+        width: 5px;
+    }
+    .SeparadorTabla>table{
+        height: 50px;
+    }
+    .TablaHorarios>tr>td,.TablaHorarios>tr>th{
+        font-size: 9px;
+    }
+    .TablaHorarios>tr{
+        width: 5px;
+    }
+    .Horas{
+        width: 20px;
+    }
+    .Horarios{
+        width: 100%;
+    }
+    .Horarios>h3{
+        left: 0;
+        font-size: 25px;
+        width: device-width;
+    }
 }

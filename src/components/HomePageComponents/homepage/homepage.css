@@ -26,3 +26,22 @@
     align-items: center;
     border-radius: 20px;
 }
+#ImagenDeLoader{
+    height: 350px;
+    padding: 25px;
+}
+@media (max-width:600px) {
+    .TextoHome{
+        font-size: 15px;
+        padding: 25px;
+        text-align: center;
+        height: 120px;
+    }
+    .TextoHome>h3{
+        margin-top: 5px;
+    }
+    #ImagenDeLoader{
+        height: 150px;
+        padding: 25px;
+    }
+}
