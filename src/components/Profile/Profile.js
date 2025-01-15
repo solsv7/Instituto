@@ -1,6 +1,5 @@
 import React from "react";
 import './Profile.css';
-import Inscribe from "../inscribePage/Inscribe";
 
 const Profile = () => {
     const user = JSON.parse(localStorage.getItem('user')) || {}; // Si es null, asigna un objeto vacío
@@ -34,7 +33,6 @@ const Profile = () => {
                 </div>
                 <div className="noce"><button onClick={saveChanges}>Guardar Cambios</button><button id="modifyBTN">Modificar Informacion</button></div>
             </div>
-            <Inscribe/>
         </div>
     )
 }

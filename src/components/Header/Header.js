@@ -1,9 +1,9 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './header.css';
 import Login from '../HomePageComponents/Login/LoginComponent';
 import Sidebar from '../sidebar/sidebar';
 import BandejaMSG from '../Advices/BandejaMSG';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import { UserContext } from '../functionalComponent/UserContext/UserContext';
 import { Link } from 'react-router-dom';
 
@@ -14,12 +14,6 @@ const Header = () => {
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
 
-  // Referencias a las secciones
-  const sectionHome = useRef(null);
-  const sectionAbout = useRef(null);
-  const sectionSchedule = useRef(null);
-  const sectionBlog = useRef(null);
-  const sectionVideos = useRef(null);
 
   // Función para cambiar la visibilidad del formulario de inicio de sesión
   function changeVis() {
@@ -32,24 +26,7 @@ const Header = () => {
         document.getElementById('formulario').style.display = 'block';
     }
 }
-  const location = useLocation();
 
-  function goComponent (ref, x) {
-  if (location.pathname === '/'){
-    moveComp(ref, x);
-  } else{};
-  }
-
-  // Función para desplazarse a una sección
-  function moveComp  (ref, offset = 0) {
-    if (ref && ref.current) {
-      const elementPosition = ref.current.getBoundingClientRect().top + window.pageYOffset;
-      window.scrollTo({
-        top: elementPosition + offset,
-        behavior: 'smooth',
-      });
-    }
-  };
   
 
   // Redirección basada en el rol del usuario
@@ -90,8 +67,8 @@ const Header = () => {
       </div>
       <nav className="nav-links">
         {/* Navegación */}
-        <h3 className="btn btn-left" onClick={() => goComponent(sectionHome,-100)}><Link to='/' className='linkStyle'>Home</Link></h3>
-        <h3 className="btn btn-left" onClick={() => goComponent(sectionVideos)}>Videos</h3>
+        <h3 className="btn btn-left" ><Link to='/' className='linkStyle'>Home</Link></h3>
+        <h3 className="btn btn-left" >Videos</h3>
 
         {/* Contenedor de login */}
         <div className="login-container">
@@ -111,7 +88,7 @@ const Header = () => {
             </div>
           ) : (
             <>
-                <h3 className="btn btn-left" id='inscription'>Inscripcion</h3>
+                <h3 className="btn btn-left" id='inscription'><Link to='/Inscription' className='ins-btn'>Inscripcion</Link></h3>
                 <button className="login-button" onClick={changeVis}>Sign In</button>
                 
                 <div className="login-form" id="formulario">
@@ -121,13 +98,6 @@ const Header = () => {
         )}
     </div>
 </nav>
-
-      {/* Secciones (pueden estar en otro componente) */}
-      <section ref={sectionHome} id="home-section">Home Content</section>
-      <section ref={sectionAbout} id="about-section">About Us Content</section>
-      <section ref={sectionSchedule} id="schedule-section">Schedule Content</section>
-      <section ref={sectionBlog} id="blog-section">Blog Content</section>
-      <section ref={sectionVideos} id="videos-section">Videos Content</section>
     </header>
   );
 };

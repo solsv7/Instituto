@@ -1,40 +1,38 @@
 .Horarios{
     padding: 0px;
-    height: 400px;
+    margin: 0px;
+    display: flex;
+    justify-self: center;
     padding-bottom: 40px;
-    margin-top: -40px;
+    margin-top: -440px;
+    position: absolute;
 }
 .Horarios>h3{
     text-align: center;
     padding: 20px;
     font-size: 30px;
     font-family: 'Allenoire';
-    margin-bottom: -30px;
-    color: #141414;
-    background-color: rgb(230, 225, 225);
-    filter: invert(1);
+    color: #ffffff;
+    background-color: rgb(27, 27, 27);
     width: 400px;
     border-radius: 22px;
     position: absolute;
     left: 440px;
-    margin-top: -40px;
-}
-.SeparadorTabla{
-    padding: 20px;
-    background-color: rgb(196, 188, 188);
-    height: 400px;
-
+    margin-top: -100px;
+    box-shadow: 1px 1px 10px black;
 }
 .TablaHorarios {
     width: 1000px;
-    justify-self: center;
+    position: absolute;
+    margin-top: -20px;
+    left: 10vw;
     border-radius: 22px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
 }
 .TablaHorarios>th{
-    color: #141414 !important;
-    background-color: rgb(230, 225, 225) !important;
-    filter: invert(1) !important;
+    color: #141414 ;
+    background-color: rgb(230, 225, 225) ;
+    
 }
 .Horas{
     font-family: 'Allenoire';
