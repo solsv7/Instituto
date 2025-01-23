@@ -6,101 +6,144 @@ const GradesTable = () => {
     const [studentId, setStudentId] = useState(null);
     const [grades, setGrades] = useState([]);
     const [organizedGrades, setOrganizedGrades] = useState({});
+    const [periods, setPeriods] = useState([]);
+    const [categories, setCategories] = useState([]);
     const [error, setError] = useState(null);
+    const [selectedYear, setSelectedYear] = useState('2024');  // Año seleccionado
 
-  // Categorías que deben coincidir con las categorías de las calificaciones
-    const categories = [
-    'Expresion Oral', 'Expresion Escrita', 'Expresion Auditiva',
-    'Estrategias, desarrollo y resolucion', 'Actitud y desempeño'];
+    const years = ['2023', '2024', '2025']; // Lista de años (ciclo lectivo)
 
     useEffect(() => {
-    // Obtener el ID del estudiante desde el localStorage
-    const storedUser = JSON.parse(localStorage.getItem('user'));
-    const studentId = storedUser ? storedUser.id_alumno : null;
+        // Obtener el ID del estudiante desde el localStorage
+        const storedUser = JSON.parse(localStorage.getItem('user'));
+        const studentId = storedUser ? storedUser.id_alumno : null;
 
-    if (studentId) {
-        setStudentId(studentId);
-    }
+        if (studentId) {
+            setStudentId(studentId);
+        }
     }, []);
 
+    // Obtener los periodos
     useEffect(() => {
-    if (studentId) {
-        const fetchGrades = async () => {
-        try {
-            const response = await axios.get(`http://localhost:3001/api/grades/${studentId}`);
-            const fetchedGrades = response.data;
-
-            if (fetchedGrades.length === 0) {
-            setError('No se encontraron calificaciones para este estudiante.');
-            setGrades([]);
-            setOrganizedGrades({});
-            return;
+        const fetchPeriods = async () => {
+            try {
+                const response = await axios.get('http://localhost:3001/api/periodos');
+                setPeriods(response.data);
+            } catch (error) {
+                console.error('Error al obtener los periodos:', error);
+                setError('Hubo un error al obtener los periodos.');
             }
-
-          setError(null); // Limpiar el error
-            setGrades(fetchedGrades);
-
-          // Organizar las calificaciones por periodo y tipo de nota
-            const gradesByPeriod = fetchedGrades.reduce((acc, grade) => {
-            const { periodo, tipo_nota, nota } = grade;
-
-            // Inicializamos el periodo si no existe en el objeto
-            if (!acc[periodo]) {
-                acc[periodo] = {};
-            }
-
-            // Asignamos la nota al tipo de nota dentro del periodo
-            acc[periodo][tipo_nota] = nota;
-
-            return acc;
-            }, {});
-
-            setOrganizedGrades(gradesByPeriod);
-        } catch (error) {
-            console.error('Error fetching grades:', error);
-            setError('Hubo un error al obtener las calificaciones.');
-        }
         };
+        fetchPeriods();
+    }, []);
 
-        fetchGrades();
-    }
-    }, [studentId]);
+    // Obtener las categorías
+    useEffect(() => {
+        const fetchCategories = async () => {
+            try {
+                const response = await axios.get('http://localhost:3001/api/categories');
+                setCategories(response.data);
+            } catch (error) {
+                console.error('Error al obtener las categorías:', error);
+                setError('Hubo un error al obtener las categorías.');
+            }
+        };
+        fetchCategories();
+    }, []);
+
+    // Obtener las calificaciones del estudiante para el ciclo lectivo seleccionado
+    useEffect(() => {
+        if (studentId) {
+            const fetchGrades = async () => {
+                try {
+                    const response = await axios.get(`http://localhost:3001/api/grades/${studentId}/${selectedYear}`);
+                    const fetchedGrades = response.data;
+
+                    if (fetchedGrades.length === 0) {
+                        setError('No se encontraron calificaciones para este estudiante en este ciclo lectivo.');
+                        setGrades([]);
+                        setOrganizedGrades({});
+                        return;
+                    }
+
+                    setError(null); // Limpiar el error
+                    setGrades(fetchedGrades);
+
+                    // Organizar las calificaciones por periodo y categoría
+                    const gradesByPeriod = fetchedGrades.reduce((acc, grade) => {
+                        const { periodo, tipo_nota, nota } = grade;
+
+                        // Asegurarse que el periodo y categoría sean los correctos.
+                        const periodName = periods.find(p => p.nombre === periodo);
+                        const categoryName = categories.find(c => c.nombre === tipo_nota);
+
+                        // Si el período y categoría existen, añadir la nota al objeto organizado
+                        if (periodName && categoryName) {
+                            if (!acc[periodName.id_periodo]) {
+                                acc[periodName.id_periodo] = {};
+                            }
+                            acc[periodName.id_periodo][categoryName.nombre] = nota;
+                        }
+                        return acc;
+                    }, {});
+
+                    setOrganizedGrades(gradesByPeriod);
+
+                } catch (error) {
+                    console.error('Error al obtener las calificaciones:', error);
+                    setError('Hubo un error al obtener las calificaciones.');
+                }
+            };
+
+            fetchGrades();
+        }
+    }, [studentId, selectedYear, periods, categories]);
+
+    // Manejar el cambio del ciclo lectivo
+    const handleYearChange = (event) => {
+        setSelectedYear(event.target.value); // Actualizamos el ciclo lectivo seleccionado
+    };
 
     return (
-    <div className="table-container">
-      <h2>Notas del Estudiante</h2>
-      {/* Mostrar mensaje de error si no hay calificaciones o si ocurre un error */}
-        {error && <p>{error}</p>}
+        <div className="table-container">
+            <h2>Notas del Estudiante</h2>
+            {error && <p>{error}</p>}
 
-      {/* Mostrar la tabla solo si hay calificaciones */}
-        {Object.keys(organizedGrades).length > 0 && (
-        <table className='Tabla-Notas'>
-            <thead>
-            <tr>
-                <th>Periodo</th>
-              {/* Crear las columnas para cada categoría de nota */}
-                {categories.map((category, index) => (
-                <th key={index}>{category}</th>
+            {/* Selector de ciclo lectivo */}
+            <label htmlFor="yearSelect">Seleccione el ciclo lectivo:</label>
+            <select id="yearSelect" value={selectedYear} onChange={handleYearChange}>
+                {years.map((year) => (
+                    <option key={year} value={year}>{year}</option>
                 ))}
-            </tr>
-            </thead>
-            <tbody>
-            {/* Iterar sobre los periodos y sus calificaciones */}
-            {Object.keys(organizedGrades).map((periodo) => (
-                <tr key={periodo}>
-                <td className='Periodo'>{periodo}</td>
-                {/* Para cada periodo, se mostrarán las notas correspondientes a cada categoría */}
-                {categories.map((category) => (
-                    <td key={category} id='NotaNumero'>
-                    {organizedGrades[periodo][category] || 'N/A'} {/* Mostrar 'N/A' si no hay nota */}
-                    </td>
-                ))}
-                </tr>
-            ))}
-            </tbody>
-        </table>
-        )}
-    </div>
+            </select>
+
+            {Object.keys(organizedGrades).length > 0 && (
+                <table className='Tabla-Notas'>
+                    <thead>
+                        <tr>
+                            <th>Periodo</th>
+                            {categories.map((category) => (
+                                <th key={category.id_tipo}>{category.nombre}</th>
+                            ))}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {periods.map((periodo) => (
+                            <tr key={periodo.id_periodo}>
+                                <td className='Periodo'>{periodo.nombre}</td>
+                                {categories.map((category) => (
+                                    <td key={category.id_tipo} id='NotaNumero'>
+                                        {organizedGrades[periodo.id_periodo]
+                                            ? organizedGrades[periodo.id_periodo][category.nombre] || 'N/A'
+                                            : 'N/A'}
+                                    </td>
+                                ))}
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            )}
+        </div>
     );
 };
 
