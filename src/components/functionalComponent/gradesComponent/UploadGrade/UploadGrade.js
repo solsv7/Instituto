@@ -114,7 +114,7 @@ const UploadGrade = ({ selectedStudentId }) => {
   return (
     <div className="upload-grade-container">
       <div className="cycle-year-selector">
-        <label htmlFor="cycleYear">Seleccionar Año:</label>
+        <label htmlFor="cycleYear" className='seleccionar'>Seleccionar ciclo:</label>
         <input
           type="number"
           id="cycleYear"

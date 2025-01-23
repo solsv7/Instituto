@@ -94,3 +94,71 @@
     background-color: #111010;
   }
   
+  #yearSelect {
+    width: 200px;
+    padding: 10px;
+    margin: 10px auto;
+    border: 2px solid #2e2929;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-family: 'Paradose';
+    font-size: 16px;
+    color: #2e2929;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#yearSelect:hover {
+    background-color: #e6e6e6;
+}
+
+#yearSelect:focus {
+    outline: none;
+    border-color: #706565;
+}
+
+label[for="yearSelect"] {
+    display: block;
+    font-family: 'Allenoire';
+    font-size: 18px;
+    margin-bottom: 5px;
+    text-align: center;
+    color: #2e2929;
+}
+
+.BotonConfirmarCiclo {
+    padding: 10px 20px;
+    background-color: #fa3838;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Paradose';
+    font-size: 16px;
+    margin-top: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.BotonConfirmarCiclo:hover {
+    background-color: #29154e;
+}
+
+.BotonesCiclo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    gap: 20px;
+}
+
+.year-confirmation {
+    font-family: 'Allenoire';
+    text-align: center;
+    font-size: 18px;
+    color: #2e2929;
+    margin-top: 10px;
+}
+
+.seleccionar {
+  font-family: 'Allenoire', Courier, monospace;
+  margin-left: 310px;
+}
