@@ -80,29 +80,17 @@ const UploadGrade = ({ selectedStudentId }) => {
     }
 
     try {
-      for (const grade of grades) {
-        if (grade.nota) {
-          if (grade.id) {
-            // Si la nota tiene un id, actualizamos la nota existente
-            await axios.put('http://localhost:3001/api/grades/actualizar-nota', {
-              idAlumno: selectedStudentId,
-              idPeriodo: grade.id_periodo,
-              idTipoNota: grade.id_tipo_nota,
-              nota: parseFloat(grade.nota),
-              cicloLectivo: confirmedYear,
-            });
-          } else {
-            // Si no tiene id, es una nota nueva, la subimos
-            await axios.post('http://localhost:3001/api/grades/subir', {
-              idAlumno: selectedStudentId,
-              idPeriodo: grade.id_periodo,
-              idTipoNota: grade.id_tipo_nota,
-              nota: parseFloat(grade.nota),
-              cicloLectivo: confirmedYear,
-            });
-          }
-        }
-      }
+      const notasAEnviar = grades.filter((grade) => grade.nota);
+
+      await axios.post('http://localhost:3001/api/grades/subir', {
+        notas: notasAEnviar.map((grade) => ({
+          idAlumno: selectedStudentId,
+          idPeriodo: periods.find((period) => period.nombre === grade.periodo)?.id_periodo,
+          idTipoNota: categories.find((category) => category.nombre === grade.tipo_nota)?.id_tipo,
+          nota: parseFloat(grade.nota),
+          cicloLectivo: confirmedYear,
+        })),
+      });
 
       alert('Notas subidas o actualizadas exitosamente.');
     } catch (error) {
@@ -127,7 +115,6 @@ const UploadGrade = ({ selectedStudentId }) => {
           onClick={() => {
             if (cycleYear) {
               setConfirmedYear(cycleYear);
-              alert(`Año ${cycleYear} confirmado.`);
             } else {
               alert('Por favor, ingrese un año válido antes de confirmar.');
             }
@@ -153,7 +140,6 @@ const UploadGrade = ({ selectedStudentId }) => {
               <tr key={period.id_periodo}>
                 <td>{period.nombre}</td>
                 {categories.map((category) => {
-                  // Buscar si la nota existe para el periodo y tipo de nota correspondiente
                   const existingGrade = grades.find(
                     (grade) =>
                       grade.periodo === period.nombre &&
@@ -196,3 +182,4 @@ const UploadGrade = ({ selectedStudentId }) => {
 };
 
 export default UploadGrade;
+
