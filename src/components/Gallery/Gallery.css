@@ -1,10 +1,15 @@
 .ContentGallery{
     padding-bottom: 50px;
+    margin-top: 200px;
+}
+
+.TextGallery{
+    margin-bottom: -90px;
 }
 .TextGallery>h2{
     font-family: 'Allenoire';
     justify-self: center;
-    font-size: 30px;
+    font-size: 40px;
     color: rgb(34, 34, 34);
     padding: 20px;
 }

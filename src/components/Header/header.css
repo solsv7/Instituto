@@ -87,6 +87,10 @@
     background: none;
     border: none;
 }
+.ins-btn{
+    text-decoration: none;
+    color: rgb(20, 20, 20);
+}
 
 .BTNSidebar {
     justify-content: center;

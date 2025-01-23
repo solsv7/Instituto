@@ -17,6 +17,7 @@ import StudentGrades from './components/functionalComponent/gradesComponent/Stud
 import GradesTable from './components/functionalComponent/gradesComponent/grades';
 import AdvicesPage from './components/Advices/AdvicesPage';
 import WorkInProgress from './components/WorkInProgress/WorkInProgres';
+import Inscribe from './components/inscribePage/Inscribe';
 
 
 
@@ -42,6 +43,7 @@ const App = () => {
             <Route path='/Not-Ready' element={<WorkInProgress />} />
             <Route path='/ClassesPage' element={<ClassesPage />} />
             <Route path='/Advices' element={<AdvicesPage />} />
+            <Route path='/Inscription' element={<Inscribe />} />
             </Routes>
             </AnimatePresence>
             
