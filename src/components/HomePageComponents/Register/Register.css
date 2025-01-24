@@ -1,4 +1,4 @@
-.ContenidoLogin{
+.formularioRegister{
     justify-self: center;
     height: 550px;
     width: 400px;
@@ -13,7 +13,7 @@
 .error-message {
     color: #B40A00;
 }
-.BTNSignIn{
+.BTNRegister{
     background-color: rgb(27, 24, 24);
     height: 40px;
     width: 15vw;
@@ -25,15 +25,15 @@
     border-radius: 8px;
 
 }
-.BTNSignIn:hover{
+.BTNRegister:hover{
     background-color: #B40A00;
 }
-.formularioLogin>div {
+.formularioRegister>div {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.formularioLogin>div>h2{
+.formularioRegister>div>h2{
     background-color: rgb(27, 24, 24);
     color: white;
     width: 100%;
@@ -44,7 +44,7 @@
     font-family: 'Allenoire';
     font-weight: lighter;
 }
-.ContentLogin>input{
+.ContentRegister>input{
     width: 15vw;
 }
 .msgError {
@@ -54,5 +54,5 @@
     font-family: 'Ristorante';
     font-size: 15px;
     position: absolute;
-    margin-top: 400px;
+    margin-top: 520px;
 }

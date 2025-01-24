@@ -1,17 +1,18 @@
 import React, { useState } from "react";
+import transition from "../../transition";
 import axios from "axios";
 import './Inscribe.css';
 
 const Inscribe = () => {
+    const user = JSON.parse(localStorage.getItem('user'));
     const [formData, setFormData] = useState({
         programa: "",
         conoce_por: "",
         nombre: "",
-        apellido: "",
+        dni: "",
         fecha_nacimiento: "",
         whatsapp: "",
         nombre_adulto: "",
-        apellido_adulto: "",
         whatsapp_adulto: "",
         calle: "",
         barrio: "",
@@ -23,14 +24,36 @@ const Inscribe = () => {
         horarios_disponibles: "",
         nivel_estudio: "",
         pago: "",
-        afeccion: ""
+        afeccion: "",
+        id_usuario:user.id_usuario,
     });
-    const formattedData = {
-        ...formData,
-        whatsapp: String(formData.whatsapp),
-        whatsapp_adulto: String(formData.whatsapp_adulto),
+    const handleExportExcel = async () => {
+        try {
+            // Realizar una solicitud POST al endpoint de tu backend
+            const response = await axios.post("http://localhost:3001/api/export-excel",formData) // Los datos actuales del formulario
+            console.log("El archivo se envió", response);
+    
+        } catch (error) {
+            console.error("Error al exportar a Excel:", error);
+            alert("Hubo un error al exportar el archivo");
+        }
     };
-
+    const handeForm = async () => {
+        try {
+            // Realizar una solicitud POST al endpoint de tu backend
+            const response = await axios.post("http://localhost:3001/api/upload-form",formData) // Los datos actuales del formulario
+            console.log("El formulario se envió", response);
+    
+        } catch (error) {
+            console.error("Error al exportar el Formulario:", error);
+            alert("Hubo un error al exportar el Formulario");
+        }
+    };
+    const handleSubmit = async () => {
+        handleExportExcel();
+        handeForm();
+    }
+    
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prev) => ({
@@ -39,47 +62,10 @@ const Inscribe = () => {
         }));
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-    
-        console.log('Datos enviados al backend:', formattedData);
-    
-        try {
-            const response = await axios.post("http://localhost:3001/api/upload-form", formattedData);
-            console.log("Formulario enviado con éxito:", response.data);
-            alert("Formulario enviado con éxito");
-        } catch (error) {
-            console.error("Error al enviar el formulario:", error);
-            alert("Hubo un error al enviar el formulario");
-        }
-        setFormData({
-            programa: "",
-            conoce_por: "",
-            nombre: "",
-            apellido: "",
-            fecha_nacimiento: "",
-            whatsapp: "",
-            nombre_adulto: "",
-            apellido_adulto: "",
-            whatsapp_adulto: "",
-            calle: "",
-            barrio: "",
-            ciudad: "",
-            estado_provincia: "",
-            codigo_postal: "",
-            mail: "",
-            ocupacion: "",
-            horarios_disponibles: "",
-            nivel_estudio: "",
-            pago: "",
-            afeccion: ""
-        });
-    };
     
     return (
         <div className="Contenido-Formulario">
-            <h1>Formulario de Inscripción</h1>
+            <h1>Formulario de Inscripcion</h1>
             <form onSubmit={handleSubmit}>
                 <div className="separadores-formulario">
                     <label>Programa</label>
@@ -101,7 +87,7 @@ const Inscribe = () => {
                 </div>
 
                 <div className="separadores-formulario">
-                    <label>¿Cómo se enteró de nuestro centro de idiomas?</label>
+                    <label>¿Como se entero de nuestro centro de idiomas?</label>
                     <select name="conoce_por" value={formData.conoce_por} onChange={handleChange}>
                         <option value="">Seleccione una opción</option>
                         <option value="Facebook">Facebook</option>
@@ -115,19 +101,22 @@ const Inscribe = () => {
                 </div>
 
                 <div className="separadores-formulario">
-                    <label>Información del estudiante</label>
+                    <label>Nombre y apellido del estudiante</label>
                     <input
                         type="text"
                         name="nombre"
-                        placeholder="Nombre"
+                        placeholder="Ej: Juan Perez"
                         value={formData.nombre}
                         onChange={handleChange}
                     />
+                </div>
+                <div className="separadores-formulario">
+                    <label>N° de Documento del estudiante</label>
                     <input
-                        type="text"
-                        name="apellido"
-                        placeholder="Apellido"
-                        value={formData.apellido}
+                        type="number"
+                        name="dni"
+                        placeholder="Ej: 40192394"
+                        value={formData.dni}
                         onChange={handleChange}
                     />
                 </div>
@@ -147,26 +136,19 @@ const Inscribe = () => {
                     <input
                         type="number"
                         name="whatsapp"
-                        placeholder="ej : 02364XXXXXX"
+                        placeholder="Ej : 02364XXXXXX"
                         value={formData.whatsapp}
                         onChange={handleChange}
                     />
                 </div>
 
                 <div className="separadores-formulario">
-                    <label>Información del adulto responsable (si aplica)</label>
+                    <label>Informacion del adulto responsable (si aplica)</label>
                     <input
                         type="text"
                         name="nombre_adulto"
-                        placeholder="Nombre del adulto"
+                        placeholder="Ej: Juan Gomez"
                         value={formData.nombre_adulto}
-                        onChange={handleChange}
-                    />
-                    <input
-                        type="text"
-                        name="apellido_adulto"
-                        placeholder="Apellido del adulto"
-                        value={formData.apellido_adulto}
                         onChange={handleChange}
                     />
                 </div>
@@ -183,7 +165,7 @@ const Inscribe = () => {
                 </div>
 
                 <div className="separadores-formulario">
-                    <label>Dirección</label>
+                    <label>Direccion</label>
                     <input
                         type="text"
                         name="calle"
@@ -222,23 +204,24 @@ const Inscribe = () => {
                 </div>
 
                 <div className="separadores-formulario">
-                    <label>Mail</label>
+                    <label>Correo electronico</label>
                     <input
                         type="email"
                         name="mail"
-                        placeholder="Correo electrónico"
+                        placeholder="Ej:example@gmail.com"
                         value={formData.mail}
                         onChange={handleChange}
                     />
                 </div>
 
                 <div className="separadores-formulario">
-                    <label>Ocupación</label>
+                    <label>Ocupacion</label>
                     <select name="ocupacion" value={formData.ocupacion} onChange={handleChange}>
                         <option value="">Seleccione una opción</option>
                         <option value="Trabajo">Trabajo</option>
                         <option value="Estudio">Estudio</option>
                         <option value="Ambas">Ambas</option>
+                        <option value="Ninguna">Ninguna</option>
                     </select>
                 </div>
 
@@ -256,6 +239,7 @@ const Inscribe = () => {
                     <label>Nivel de estudio</label>
                     <select name="nivel_estudio" value={formData.nivel_estudio} onChange={handleChange}>
                         <option value="">Seleccione un nivel</option>
+                        <option value="Ninguno">Ninguno</option>
                         <option value="Básico">Básico</option>
                         <option value="Intermedio">Intermedio</option>
                         <option value="Avanzado">Avanzado</option>
@@ -276,10 +260,10 @@ const Inscribe = () => {
                 </div>
 
                 <div className="separadores-formulario">
-                    <label>Afección médica</label>
+                    <label>Alguna afeccion medica que debamos tener conocimiento</label>
                     <textarea
                         name="afeccion"
-                        placeholder="Describe cualquier afección médica"
+                        placeholder="Si no posee ninguna no es necesario rellenar este campo"
                         value={formData.afeccion}
                         onChange={handleChange}
                     ></textarea>
@@ -291,4 +275,4 @@ const Inscribe = () => {
     );
 };
 
-export default Inscribe;
+export default transition(Inscribe);

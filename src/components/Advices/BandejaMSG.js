@@ -14,7 +14,7 @@ const Avisos = () => {
 
     useEffect(() => {
         const fetchMessages = async () => {
-            const params = { id_alumno: user.id_alumno };
+            const params = { id_alumno: user.id_alumno, validation : "bandeja" };
 
             console.log("Parámetros recolectados:", params);
             try {

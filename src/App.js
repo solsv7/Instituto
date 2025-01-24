@@ -12,12 +12,19 @@ import ClassesPage from './pages/ClassesPage';
 import HomeStudent from './components/HomeUsers/HomeStudent';
 import HomeTeacher from './components/HomeUsers/HomeTeacher';
 import HomeAdmin from './components/HomeUsers/HomeAdmin';
-import CrearUsuario from './components/functionalComponent/UserRegistration/UserRegistration';
 import StudentGrades from './components/functionalComponent/gradesComponent/StudentGrades/StudentGrades';
 import GradesTable from './components/functionalComponent/gradesComponent/grades';
 import AdvicesPage from './components/Advices/AdvicesPage';
 import WorkInProgress from './components/WorkInProgress/WorkInProgres';
 import Inscribe from './components/inscribePage/Inscribe';
+import UploadVids from './components/VideosPages/UploadVids';
+import AllVids from './components/VideosPages/AllVids';
+import UsersCreation from './components/functionalComponent/UserRegistration/UserCreatePage';
+import LoginComponent from './components/HomePageComponents/Login/LoginComponent';
+import Register from './components/HomePageComponents/Register/Register';
+import BuscadorAlumnos from './components/functionalComponent/UserRegistration/newStudentCreate';
+import VerTodaBandeja from './components/Advices/VerTodaBandeja';
+import ModificarProfile from './components/Profile/ModificarProfile';
 
 
 
@@ -37,13 +44,20 @@ const App = () => {
             <Route path='/home-student' element={<HomeStudent />} />
             <Route path='/home-teacher' element={<HomeTeacher />} />
             <Route path='/home-admin' element={<HomeAdmin />} />
-            <Route path='/Create-User' element={<CrearUsuario />} />
+            <Route path='/Crear-usuarios' element={<UsersCreation/>} />
             <Route path='/Upload-Marks' element={<StudentGrades />} />
             <Route path='/Student-Marks' element={<GradesTable />} />
             <Route path='/Not-Ready' element={<WorkInProgress />} />
             <Route path='/ClassesPage' element={<ClassesPage />} />
             <Route path='/Advices' element={<AdvicesPage />} />
             <Route path='/Inscription' element={<Inscribe />} />
+            <Route path='/Upload-Vids' element={<UploadVids />} />
+            <Route path='/All-Vids' element={<AllVids />} />
+            <Route path='/Login' element={<LoginComponent />} />
+            <Route path='/Register' element={<Register />} />
+            <Route path='/Buscador' element={<BuscadorAlumnos />} />
+            <Route path='/All-Msg' element={<VerTodaBandeja />} />
+            <Route path='/Modificar' element={<ModificarProfile />} />
             </Routes>
             </AnimatePresence>
             

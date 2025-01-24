@@ -1,0 +1,16 @@
+.casillaMensajes{
+    justify-self: center;
+    width: 450px;
+    background-color: white;
+}
+.casillaMensajes ul{
+    list-style: none;
+}
+.casillaMensajes h4{
+    background-color: rgb(27,24,24);
+    text-align: center;
+    color: white;
+    font-family: 'Allenoire';
+    font-size: 30px;
+    padding: 10px 0px 10px 0px;
+}

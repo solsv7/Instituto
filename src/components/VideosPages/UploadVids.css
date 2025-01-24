@@ -1,15 +1,14 @@
-
-.Contenido-Formulario{
-justify-self: center;
+.Formulario-Videos{
+    justify-self: center;
 background-color: rgb(250, 245, 245);
 padding: 20px;
 }
-.Contenido-Formulario h1{
+.Formulario-Videos>h1{
     justify-self: center;
     font-family: 'Allenoire';
     font-weight: lighter;
 }
-.separadores-formulario{
+.separador-form{
     display: flex;
     flex-direction: column;
     width: 400px;
@@ -18,31 +17,32 @@ padding: 20px;
     border-radius: 5px;
     box-shadow: 1px 1px 10px rgb(199, 196, 196);
 }
-.separadores-formulario>label{
+.separador-form>label{
     font-size: 20px;
     font-family: 'Allenoire';
 }
-.separadores-formulario>input{
+.separador-form>input{
     height: 30px;
 }
-.separadores-formulario>select,.separadores-formulario>option{
-    height: 30px;
-}
-.campo-de-texto{
+.campo-texto{
     width: 100%;
     height: 100px;
 }
-.enviar-btn{
+.enviar-boton{
     background-color: black;
     border: none;
     color: white;
     font-family: 'Allenoire';
+    transition: background-color 0.3s ease;
     font-size: 20px;
     width: 100%;
     height: 50px;
     border-radius: 5px;
 }
-.enviar-btn:hover{
+.enviar-boton:hover{
     background-color: rgb(209, 55, 55);
     color: rgb(245, 237, 237);
+}
+.Options{
+    height: 40px;
 }

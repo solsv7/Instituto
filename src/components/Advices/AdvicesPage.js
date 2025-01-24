@@ -1,4 +1,5 @@
 import React, { useState , useEffect} from "react";
+import transition from "../../transition";
 import "./AdvicesPage.css"
 import axios from "axios";
 
@@ -144,4 +145,4 @@ const AdvicesPage = () => {
     );
 };
 
-export default AdvicesPage;
+export default transition(AdvicesPage);

@@ -1,9 +1,11 @@
 import React, { createContext, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
     const [userName, setUserName] = useState('');
+    const navigate = useNavigate();
 
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem('user'));
@@ -12,8 +14,16 @@ export const UserProvider = ({ children }) => {
         }
     }, []);
 
+    // Función handleLogout
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        setUserName(''); // Limpiar el estado del nombre del usuario
+        navigate('/'); // Redirigir al inicio o página de login
+    };
+
     return (
-        <UserContext.Provider value={{ userName, setUserName}}>
+        <UserContext.Provider value={{ userName, setUserName, handleLogout }}>
             {children}
         </UserContext.Provider>
     );

@@ -1,17 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './StudentSearch.css'; // Archivo CSS para estilos
+import './StudentSearch.css'; 
 
 const StudentSearch = ({ onSelectStudent }) => {
   const [students, setStudents] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredStudents, setFilteredStudents] = useState([]);
   const [selectedStudent, setSelectedStudent] = useState(null); // Para guardar el alumno seleccionado
+  const option = "";
+
 
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/obtenerAlumnos');
+        const response = await axios.get('http://localhost:3001/api/obtenerAlumnos',{
+          params:{option:"existente"}
+        }
+        );
         setStudents(response.data);
       } catch (error) {
         console.error('Error fetching students:', error);
@@ -25,7 +30,7 @@ const StudentSearch = ({ onSelectStudent }) => {
     const term = e.target.value.toLowerCase();
     setSearchTerm(term);
     if (term === ''){
-      setFilteredStudents(['']); // Si el campo está vacío, no mostrar nada
+      setFilteredStudents(['']); 
     } else {
       setFilteredStudents(
         students.filter(student =>
@@ -34,14 +39,12 @@ const StudentSearch = ({ onSelectStudent }) => {
       );
     }
   };
-  const resetSelectStudent = () => {
-    setSelectedStudent('');
-  }
+
   const handleSelectStudent = (id, name) => {
-    onSelectStudent(id); // Llamar la función pasada por props
-    setSelectedStudent(name); // Mostrar el nombre del alumno seleccionado
-    setSearchTerm(''); // Limpiar el campo de búsqueda
-    setFilteredStudents([]); // Limpiar la lista de resultados
+    onSelectStudent(id); 
+    setSelectedStudent(name); 
+    setSearchTerm(''); 
+    setFilteredStudents([]); 
   };
 
   return (
@@ -54,15 +57,13 @@ const StudentSearch = ({ onSelectStudent }) => {
         onChange={handleSearch}
         className="Input-Buscar"
       />
-        <p className='Mensaje-Seleccionado'>Alumno Seleccionado</p>
-        <h3 onClick={resetSelectStudent} className='erase-button'>↻ Borrar</h3>
-      {/* Si hay un alumno seleccionado, mostrarlo */}
+      <p className='Mensaje-Seleccionado'>Alumno Seleccionado</p>
+      <h3 onClick={() => setSelectedStudent(null)} className='erase-button'>↻ Borrar</h3>
       {selectedStudent ? (
         <div className='a'>
           <p className='Mensaje-Seleccionado2'>{selectedStudent}</p>
         </div>
       ) : (
-        // Mostrar la lista de resultados solo si hay resultados
         filteredStudents.length > 0 && (
           <ul className="lista-Estudiantes">
             {filteredStudents.map(student => (
@@ -84,3 +85,4 @@ const StudentSearch = ({ onSelectStudent }) => {
 };
 
 export default StudentSearch;
+

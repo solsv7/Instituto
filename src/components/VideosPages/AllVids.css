@@ -1,0 +1,19 @@
+.Contenido-Videos{
+    justify-self: center;
+}
+.Contenido-Videos>h1{
+    font-family: 'Allenoire';
+    text-align: center;
+    font-weight: lighter;
+    font-size: 40px;
+}
+.separador-videos{
+    border-bottom: solid 1px rgb(197, 184, 184);
+    border-top: solid 1px rgb(197, 184, 184);
+    font-size: 25px;
+    max-width: 400px;
+    padding: 20px;
+}
+.titulos{
+    font-family: 'Soria';
+}

@@ -41,9 +41,9 @@ const Sidebar = () => {
     } else if (user.rol === 2){
       content = (
         <div className='OpcionesSidebar'>
-            <Link to="/Create-User"><h4 className='OpcionSidebar' id='Red2'>Alumnos</h4></Link>
+            <Link to="/Crear-usuarios"><h4 className='OpcionSidebar' id='Red2'>Alumnos</h4></Link>
             <Link to="/Upload-Marks"><h4 className='OpcionSidebar' id='Red2'>Subir Notas</h4></Link>
-            <Link to="/Upload-Marks"><h4 className='OpcionSidebar' id='Red2'>Subir Videos</h4></Link>
+            <Link to="/upload-vids"><h4 className='OpcionSidebar' id='Red2'>Subir Videos</h4></Link>
             <Link to="/Advices"><h4 className='OpcionSidebar' id='Red2'>Avisos</h4></Link>
             <button onClick={handleLogout} className='LogOutBTN'>Cerrar Sesion</button>
         </div>
@@ -52,9 +52,8 @@ const Sidebar = () => {
       content = (
           <div className='OpcionesSidebar'>
               <Link to="/home-student"><h4 className='OpcionSidebar' id='Blue2'>Perfil</h4></Link>
-              <Link to="/Not-Ready"><h4 className='OpcionSidebar' id='Red2'>Mis Clases</h4></Link>
               <Link to="/Student-Marks"><h4 className='OpcionSidebar' id='Red2'>Mis Notas</h4></Link>
-              <Link to="/Not-Ready"><h4 className='OpcionSidebar' id='Red2'>Avisos</h4></Link>
+              <Link to="/All-Msg"><h4 className='OpcionSidebar' id='Red2'>Avisos</h4></Link>
               <button onClick={handleLogout} className='LogOutBTN'>Cerrar Sesion</button>
           </div>
       );
@@ -75,7 +74,7 @@ const Sidebar = () => {
       </button>
 
       {}
-      <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
+      <div className={`sidebar ${isOpen ? 'open' : 'closed'} rol-${user.rol}`}>
         <h2>Opciones</h2>
         <div className='Divparasepararyquedebonito'>
           {content}

@@ -53,15 +53,17 @@
     margin-top: 0px;
     
 }
-
+.Nada{
+    display: none;
+}
 .login-button {
     padding: 10px;
     width: 120px;
     height: 40px;
-    background-color: rgb(199, 25, 25);
+    background-color: #B40A00;
     border-radius: 19px;
-    color: rgb(245, 241, 241);
     border: none;
+    color: white;
     transition: background-color 0.3s ease;
     font-size: 18px;
     font-family: 'Allenoire';
@@ -69,27 +71,28 @@
     margin-top: 0px;
     cursor: pointer;
 }
-#home-section,#about-section,#schedule-section,#blog-section,#videos-section{
-    display: none;
-}
 .login-button:hover {
     background-color: rgb(31, 31, 112);
     color: rgb(241, 241, 241);
 }
-.BTNAvisos{
+.EstiloLink{
+    text-decoration: none;
+    color: white;
+}
+.BTNAvisos>div{
     width: 50px;
+    background-color: #B40A00;
+}
+.ins-button{
+    margin: 0px;
 }
 .linkStyle{
     text-decoration: none;
     color: rgb(20, 20, 20);
 }
-.log-perf > button {
-    background: none;
-    border: none;
-}
+
 .ins-btn{
-    text-decoration: none;
-    color: rgb(20, 20, 20);
+    margin: 0px !important;
 }
 
 .BTNSidebar {
@@ -98,14 +101,33 @@
     margin-right: -30px;
     height: 40px;
     border: 5px;
-    margin-top: -290px;
+    margin-top: -165px;
 }
-
+.cerrarGuest h3{
+    padding: 10px;
+    width: 150px;
+    height: 20px;
+    background-color: #B40A00;
+    border-radius: 19px;
+    border: none;
+    color: white;
+    transition: background-color 0.3s ease;
+    font-size: 18px;
+    font-family: 'Allenoire';
+    margin-right: 40px;
+    margin-top: -70px;
+    cursor: pointer;
+}
+.cerrarGuest h3:hover{
+    background-color: rgb(31, 31, 112);
+}
 .log-perf {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
+    height: 10px;
+    margin: 0px;
 }
 
 .btn {
@@ -125,7 +147,8 @@
 #user {
     text-decoration: none;
     max-width: 200px;
-    margin-top: -62px;
+    margin-top: 0px;
+    border: none;
 }
 
 .btn::after {
@@ -151,33 +174,6 @@
     cursor: pointer;
 }
 
-@keyframes enter {
-    from {
-        display: none;
-        opacity: 0;
-        top: -50px;
-    }
-    to {
-        display: block;
-        opacity: 1;
-        top: 90px;
-        position: fixed;
-    }
-}
-
-@keyframes leave {
-    from {
-        display: block;
-        opacity: 1;
-        top: 90px;
-        position: fixed;
-    }
-    to {
-        display: none;
-        opacity: 0;
-        top: -50px;
-    }
-}
 @media (max-width:600px) {
     .header{
         width: 100vh;
@@ -205,37 +201,7 @@
         left: 130px;
         top: -65px;
     }
-    @keyframes enter {
-        from {
-            display: none;
-            opacity: 0;
-            top: -50px;
-            left: 140px;
-        }
-        to {
-            display: block;
-            opacity: 1;
-            top: 90px;
-            position: fixed;
-            left: 140px;
-        }
-    }
     
-    @keyframes leave {
-        from {
-            display: block;
-            opacity: 1;
-            top: 90px;
-            left: 140px;
-            position: fixed;
-        }
-        to {
-            display: none;
-            opacity: 0;
-            top: -50px;
-            left:140px;
-        }
-    }
     #formulario{
         left: 140px;
     }

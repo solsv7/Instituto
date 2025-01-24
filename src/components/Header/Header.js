@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import './header.css';
 import Login from '../HomePageComponents/Login/LoginComponent';
 import Sidebar from '../sidebar/sidebar';
@@ -10,24 +10,40 @@ import { Link } from 'react-router-dom';
 const Header = () => {
   const token = localStorage.getItem('token');
   const user = JSON.parse(localStorage.getItem('user'));
-  const { userName } = useContext(UserContext);
-  const [show, setShow] = useState(false);
+  const { handleLogout } = useContext(UserContext);
   const navigate = useNavigate();
 
 
-  // Función para cambiar la visibilidad del formulario de inicio de sesión
-  function changeVis() {
-    setShow(!show);
-    if (show) {
-        document.getElementById('formulario').style.animation = 'leave 1s ease-in-out';
-        document.getElementById('formulario').style.display = 'none';
-    } else {
-        document.getElementById('formulario').style.animation = 'enter 1s ease-in-out';
-        document.getElementById('formulario').style.display = 'block';
-    }
-}
 
   
+let content;
+    if (user?.rol == 3 ){
+      content = (
+        <div>
+            <BandejaMSG />
+        </div>
+      );
+    } else {
+      content = (
+          <div className='Nada'>
+          </div>
+      );
+  }
+  let validateSidebar;
+  if (user?.rol == 4 ){
+    validateSidebar = (
+      <div className='cerrarGuest'>
+        <h3 onClick={handleLogout}>Cerrar Sesion</h3>
+      </div>
+          
+    );
+  }else {
+    validateSidebar = (
+      <div className="BTNSidebar">
+        <Sidebar />
+      </div>
+    );
+}
 
   // Redirección basada en el rol del usuario
   const checkRole = () => {
@@ -42,10 +58,11 @@ const Header = () => {
         navigate('/home-student');
         break;
       default:
-        navigate('/ProfilePage');
+        navigate('/');
         break;
     }
   };
+  
 
   return (
     <header className="header">
@@ -67,33 +84,28 @@ const Header = () => {
       </div>
       <nav className="nav-links">
         {/* Navegación */}
-        <h3 className="btn btn-left" ><Link to='/' className='linkStyle'>Home</Link></h3>
-        <h3 className="btn btn-left" >Videos</h3>
+        <h3 className="btn btn-left" ><Link to='/' className='linkStyle'>Inicio</Link></h3>
+        <h3 className="btn btn-left" ><Link to='/All-Vids' className='linkStyle'>Videos</Link></h3>
 
         {/* Contenedor de login */}
         <div className="login-container">
           {token ? (
             <div className="log-perf">
-              <button onClick={checkRole}>
-                <h3 className="btn btn-left" id="user">
-                  {userName || 'Usuario'}
+              <h3 className="btn btn-left ins-button" ><Link to='/Inscription' className='linkStyle'>Inscripcion</Link></h3>
+                <h3 className="btn btn-left" id="user" onClick={checkRole}>
+                  {user.nombre || 'Usuario'}
                 </h3>
-              </button>
               <div className='BTNAvisos'>
-                <BandejaMSG />
+                {content}
               </div>
-              <div className="BTNSidebar">
-                <Sidebar />
+              <div >
+                {validateSidebar}
               </div>
             </div>
           ) : (
             <>
-                <h3 className="btn btn-left" id='inscription'><Link to='/Inscription' className='ins-btn'>Inscripcion</Link></h3>
-                <button className="login-button" onClick={changeVis}>Sign In</button>
+                <button className="login-button"><Link to='/Login' className='EstiloLink'>Ingresar</Link></button>
                 
-                <div className="login-form" id="formulario">
-                    <Login />
-                </div>
             </>
         )}
     </div>
