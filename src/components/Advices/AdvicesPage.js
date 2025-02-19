@@ -10,6 +10,7 @@ const AdvicesPage = () => {
     const [selectedStudent, setSelectedStudent] = useState(""); // Alumno seleccionado
     const [message, setMessage] = useState(""); // Mensaje a enviar
     const [selectedLevel, setSelectedLevel] = useState("");
+    const option = "";
     
     useEffect(() => {
         const fetchLevels = async () => {
@@ -26,8 +27,11 @@ const AdvicesPage = () => {
     useEffect(() => {
         const fetchStudents = async () => {
           try {
-            const response = await axios.get('http://localhost:3001/api/obtenerAlumnos');
+            const response = await axios.get('http://localhost:3001/api/obtenerAlumnos',{
+                params:{option:"existente"}
+              });
             setStudents(response.data);
+            console.log('estudiantes: ', student);
           } catch (error) {
             console.error('Error fetching students', error);
           }
@@ -42,48 +46,35 @@ const AdvicesPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
     
-        // Validar datos antes de enviar
-        if (target === "alumno" && !selectedStudent) {
-            return alert("Debes seleccionar un alumno");
-        }
-        if (!message.trim()) {
-            return alert("El mensaje no puede estar vacío");
-        }
-        if (target === "curso" && !selectedLevel){
-            return alert("Debes seleccionar un curso");
-        }
-        // Crear objeto para enviar
-        const avisoAlumno = {
-            id_alumno: target === "alumno" ? selectedStudent : null, // Enviar ID del alumno o null
-            mensaje: message
-        };
-        const avisoCurso = {
-            id_nivel:target === "curso" ? selectedLevel : null,
-            mensaje:message
+        // Validaciones antes de enviar
+        if (!target) return alert("Debes seleccionar un destinatario");
+        if (target === "alumno" && !selectedStudent) return alert("Debes seleccionar un alumno");
+        if (target === "curso" && !selectedLevel) return alert("Debes seleccionar un curso");
+        if (!message.trim()) return alert("El mensaje no puede estar vacío");
+    
+        // Objeto de datos para enviar
+        let data = { target, mensaje: message };
+        let url = "http://localhost:3001/api/mensaje"; // Endpoint por defecto
+    
+        if (target === "alumno") {
+            data.id_alumno = selectedStudent;
+        } else if (target === "curso") {
+            data.id_nivel = selectedLevel;
+            url = "http://localhost:3001/api/mensajeCurso"; // Cambia URL para cursos
         }
     
-        console.log('Aviso enviado al backend:', avisoAlumno); // Agrega este log
-        if (target === "alumno"){
-            try {
-                const response = await axios.post('http://localhost:3001/api/mensaje', avisoAlumno);
-                alert("Aviso enviado con éxito");
-                console.log(response.data);
-            } catch (error) {
-                console.error("Error al guardar el aviso:", error);
-                alert("Hubo un error al enviar el aviso");
-            }
-        }
-        if (target === "curso"){
-            try {
-                const response = await axios.post('http://localhost:3001/api/mensajeCurso', avisoCurso);
-                alert("Aviso enviado con éxito");
-                console.log(response.data);
-            } catch (error) {
-                console.error("Error al guardar el aviso:", error);
-                alert("Hubo un error al enviar el aviso");
-            }
+        console.log("Enviando aviso:", data); // Verifica qué se está enviando
+    
+        try {
+            const response = await axios.post(url, data);
+            alert("Aviso enviado con éxito");
+            console.log(response.data);
+        } catch (error) {
+            console.error("Error al guardar el aviso:", error.response?.data || error);
+            alert("Hubo un error al enviar el aviso");
         }
     };
+    
     return (
         <div className="AdviceContent">
             <h1>Avisos</h1>

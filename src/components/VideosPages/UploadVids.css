@@ -1,12 +1,32 @@
 .Formulario-Videos{
-    justify-self: center;
+position: relative;
+justify-self: center;
 background-color: rgb(250, 245, 245);
 padding: 20px;
+z-index: 1;
+}
+.Formulario-Videos::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../../images/PatronFondo.png); 
+    background-size: 99%;
+    opacity: 0.4; 
+    border-bottom-right-radius: 22.5px;
+    border-bottom-left-radius: 22.5px;
+    z-index: -1; 
 }
 .Formulario-Videos>h1{
     justify-self: center;
     font-family: 'Allenoire';
     font-weight: lighter;
+    background-color: rgb(27,24,24);
+        color: white;
+        width: 90vw;
+        text-align: center;
 }
 .separador-form{
     display: flex;
@@ -45,4 +65,14 @@ padding: 20px;
 }
 .Options{
     height: 40px;
+}
+@media (max-width:600px) {
+    .Formulario-Videos{
+        margin-top: 100px;
+    }
+    .Formulario-Videos>h1{
+        padding: 20px;
+        margin-top: -20px;
+        
+    }
 }

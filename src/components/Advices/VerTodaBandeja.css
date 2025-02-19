@@ -1,8 +1,27 @@
-.casillaMensajes{
+.casillaMensajes {
+    position: relative;
     justify-self: center;
-    width: 450px;
-    background-color: white;
+    width: 550px;
+    background-color: white; /* Mantiene el fondo blanco */
+    z-index: 1; /* Asegura que el contenido esté sobre la capa de fondo */
+    box-shadow: 1px 10px 10px gray;
+    margin-bottom: 20px;
 }
+
+/* Capa semitransparente con el mismo fondo */
+.casillaMensajes::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../../images/PatronFondo.png); /* Mismo fondo */
+    background-size: 100%;
+    opacity: 0.4; /* Ajusta la opacidad según necesites */
+    z-index: -1; /* Envía la capa al fondo */
+}
+
 .casillaMensajes ul{
     list-style: none;
 }

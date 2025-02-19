@@ -71,31 +71,32 @@
 }
 @media (max-width:600px){
     .ContenedorAbout{
-        width: device-width;
-        height: 200px;
-        background-size: 600px 350px;
-        background-attachment: fixed;
-        
+        background: none;
     }
     .Years{
         height: 100px;
         width: 180px;
+        display: none;
     }
     .Years>h3{
         font-size: 10px;
         width: 140px;
+        display: none;
     }
     .Years>h1{
         font-size: 30px;
+        display: none;
     }
     .Contenido>h2{
         left: 0px;
         font-size: 20px;
         width: 120px;
+        display: none;
     }
     .Contenido>h4{
         left: 0px;
         margin-top: 60px;
         font-size: 10px;
+        display: none;
     }
 }

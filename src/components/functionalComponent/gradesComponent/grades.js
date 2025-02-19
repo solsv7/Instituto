@@ -141,8 +141,8 @@ const GradesTable = () => {
                                 {categories.map((category) => (
                                     <td key={category.id_tipo} id='NotaNumero'>
                                         {organizedGrades[periodo.id_periodo]
-                                            ? organizedGrades[periodo.id_periodo][category.nombre] || 'N/A'
-                                            : 'N/A'}
+                                            ? organizedGrades[periodo.id_periodo][category.nombre] || '-'
+                                            : '-'}
                                     </td>
                                 ))}
                             </tr>

@@ -63,16 +63,22 @@ const Profile = () => {
             <div className="Contenido-Perfil">
                 <h2>Mi Perfil</h2>
                 <div className="userData">
-                    <h3>{user.nombre}</h3>
-                    <h4 className="Rol">{UserType}</h4>
-                    <img src={photo} alt="Foto de perfil" />
-                    <div>
+                <div className="user-w-pic">
+                        <div className="user">
+                            <h2>{user.nombre}</h2>
+                            <h4 className="Rol">{UserType}</h4>
+                        </div>
+                        <div className="pic">
+                            <img src={photo} alt="Foto de perfil" />
+                        </div>
+                    </div>
+                    <div className="extra-info">
                         <h1>Información adicional</h1>
                         <h4>Correo: {profileData?.mail || 'No disponible'}</h4>
                         <h4>Num. Contacto: {profileData?.whatsapp || 'No disponible'}</h4>
                     </div>
                     <div className="noce">
-                        <button id="modifyBTN">Modificar Información</button>
+                        <button><Link to='/Modificar' className="modifyBTN">Modificar Informacion</Link></button>
                     </div>
                 </div>
             </div>
@@ -83,16 +89,22 @@ const Profile = () => {
             <div className="Contenido-Perfil">
                 <h2>Mi Perfil</h2>
                 <div className="userData">
-                    <h3>{user.nombre}</h3>
-                    <h4 className="Rol">{UserType}</h4>
-                    <img src={photo} alt="Foto de perfil" />
-                    <div>
+                <div className="user-w-pic">
+                        <div className="user">
+                            <h2>{user.nombre}</h2>
+                            <h4 className="Rol">{UserType}</h4>
+                        </div>
+                        <div className="pic">
+                            <img src={photo} alt="Foto de perfil" />
+                        </div>
+                    </div>
+                    <div className="extra-info">
                         <h1>Información adicional</h1>
                         <h4>Correo: {profileData?.mail || 'No se ha proporcionado'}</h4>
                         <h4>Num. Contacto: {profileData?.whatsapp || 'No se ha proporcionado'}</h4>
                     </div>
                     <div className="noce">
-                        <button id="modifyBTN">Modificar Información</button>
+                        <button><Link to='/Modificar' className="modifyBTN">Modificar Informacion</Link></button>
                     </div>
                 </div>
             </div>

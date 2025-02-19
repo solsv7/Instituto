@@ -1,11 +1,10 @@
-import React from 'react';
+import { useEffect } from 'react'; 
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import './App.css';
 import Header from './components/Header/Header';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
-import BlogPage from './pages/BlogPage';
 import SchedulesPage from './pages/SchedulesPage';
 import ProfilePage from './pages/ProfilePage';
 import ClassesPage from './pages/ClassesPage';
@@ -29,6 +28,10 @@ import ModificarProfile from './components/Profile/ModificarProfile';
 
 
 const App = () => {
+    useEffect(() => {
+        document.documentElement.lang = "es"; // Cambia "es" por el idioma correcto
+    }, []);
+    
 
     const location = useLocation();
     return (
@@ -37,7 +40,6 @@ const App = () => {
             <AnimatePresence mode='wait'>
             <Routes location={location} key={location.pathname}>
             <Route index element={<HomePage />} />
-            <Route path='/BlogPage' element={<BlogPage />} />
             <Route path='/AboutPage' element={<AboutPage />} />
             <Route path='/SchedulePage' element={<SchedulesPage />} />
             <Route path='/ProfilePage' element={<ProfilePage />} />

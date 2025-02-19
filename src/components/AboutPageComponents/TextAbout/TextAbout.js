@@ -7,12 +7,12 @@ const TextAbout = () => {
             <div className="Contenido">
                 <div className="TituloInstituto">
                     <h2>St Thomas</h2>         
-                    <h4>Portuguese & English</h4>
+                    <h4>Ingles y Portugues</h4>
                 </div>
 
                 <div className="Years">
-                    <h1>+30 Years</h1>
-                    <h3>Teaching and helping everyone improving their language skills</h3>
+                    <h1>+30 Años</h1>
+                    <h3>Ayudando a la gente a mejorar sus habilidades en idiomas</h3>
                 </div>
             </div>
         </div>

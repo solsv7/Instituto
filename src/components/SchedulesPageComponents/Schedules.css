@@ -12,6 +12,7 @@
     padding: 20px;
     font-size: 30px;
     font-family: 'Allenoire';
+    font-weight: lighter;
     color: #ffffff;
     background-color: rgb(27, 27, 27);
     width: 400px;
@@ -51,27 +52,41 @@
     border-bottom-right-radius: 22px;
 }
 @media (max-width:600px) {
-    .TablaHorarios{
-        width: 5px;
+    .Horarios {
+        width: 100vw;
+        margin-top: -760px;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centra los elementos */
+    }
+
+    .Horarios > h3 {
+        font-size: 5vw;
+        width: 90vw;
+        text-align: center;
+        margin: 0 auto;
+        display: block;
+        position: relative;
+        left: auto;
+    }
+
+    .TablaHorarios {
+        width: 90vw; /* Asegura que la tabla sea responsive */
+        margin: 0 auto; /* Centra la tabla */
+        left: auto; /* Elimina desplazamientos laterales */
+        position: relative; /* Para evitar que se salga del flujo */
     }
     .SeparadorTabla>table{
         height: 50px;
     }
     .TablaHorarios>tr>td,.TablaHorarios>tr>th{
-        font-size: 9px;
+        font-size: 2vw;
     }
     .TablaHorarios>tr{
-        width: 5px;
+        width: 2px;
     }
     .Horas{
-        width: 20px;
+        width: 10px;
     }
-    .Horarios{
-        width: 100%;
-    }
-    .Horarios>h3{
-        left: 0;
-        font-size: 25px;
-        width: device-width;
-    }
+   
 }

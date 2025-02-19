@@ -6,8 +6,8 @@ const Homepag = () => {
     return(
         <div className="todo">
             <div className="TextoHome">
-                <h2>A different way</h2>
-                <h3>to learn Languages</h3>
+                <h2>Una manera diferente de aprender idiomas</h2>
+                <h3>"Creando Futuro"</h3>
             </div>
             <ImageLoader />
         </div>

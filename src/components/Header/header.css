@@ -176,34 +176,33 @@
 
 @media (max-width:600px) {
     .header{
-        width: 100vh;
+        margin-top: -60px;
+        width: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-self: center;
+        
     }
     .nav-links{
-        display: grid;
-        grid-template-columns: auto;
+        display: flex;
+        flex-direction: column;
         gap: 0px;
         margin: 0px;
-        position: absolute;
-        top: 90px;
-        left: 200px;
+        position: relative;
+        justify-self: center;
+        margin-top: 30px;
     }
     .btn{
         margin-top: -5px;
         margin-bottom: -5px;
     }
-    .Title{
-        margin-top: -85px;
-        left: 30px;
-        position: absolute;
-    }
-    .login-button{
-        position: absolute;
-        left: 130px;
-        top: -65px;
+    .login-button {
+        width: 30vw;
+        margin: 0 auto;
+        display: block;
+        margin-top: -35px;
+        z-index: 5001;
     }
     
-    #formulario{
-        left: 140px;
-    }
-
+    
 }

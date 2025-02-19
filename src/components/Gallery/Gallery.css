@@ -16,7 +16,7 @@
 .TextGallery>h3{
     font-size: 20px;
     justify-self: center;
-    font-family: 'Soria';
+    font-family: 'Paradose';
     letter-spacing: 1px;
     margin: 0px;
 }
@@ -58,5 +58,15 @@
     100%{
         -webkit-transform:translateX(calc(-232.2px * 3.98));
         transform: translateX(calc(-232.2px * 3.98));
+    }
+}
+@media (max-width:600px) {
+    .ContentGallery{
+        margin-top: -300px;
+    }
+    .TextGallery{
+        max-width: 450px;
+        text-align: center;
+        justify-self: center;
     }
 }

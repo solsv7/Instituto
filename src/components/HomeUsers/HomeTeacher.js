@@ -31,7 +31,6 @@ const HomeTeacher = () => {
 
     return (
         <div>
-            <h1 className='nombreUsuario'>Bienvenido, {user?.nombre || 'Invitado'}!</h1>
             <div className='perfilTeacher'>
                 <Profile />
             </div>
