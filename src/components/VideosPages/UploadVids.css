@@ -1,6 +1,7 @@
 .Formulario-Videos{
 position: relative;
 justify-self: center;
+width: 40vw;
 background-color: rgb(250, 245, 245);
 padding: 20px;
 z-index: 1;
@@ -10,7 +11,7 @@ z-index: 1;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 40vw;
     height: 100%;
     background-image: url(../../images/PatronFondo.png); 
     background-size: 99%;
@@ -23,10 +24,12 @@ z-index: 1;
     justify-self: center;
     font-family: 'Allenoire';
     font-weight: lighter;
+    margin-top: -30px;
+    padding: 20px;
     background-color: rgb(27,24,24);
-        color: white;
-        width: 90vw;
-        text-align: center;
+    color: white;
+    width: 40vw;
+    text-align: center;
 }
 .separador-form{
     display: flex;
